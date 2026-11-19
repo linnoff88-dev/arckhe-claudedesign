@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Módulo 2.7 · Múltiplos design systems | T2</title>
+<script src="https://cdn.tailwindcss.com"></script><script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body { font-family: 'Inter', sans-serif; } .dark body { background-color: #111827; } html:not(.dark) body { background-color: #f8fafc; } html:not(.dark) .bg-dark-900 { background-color: #ffffff; } html:not(.dark) .bg-dark-800 { background-color: #f9fafb; } html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; } html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; } html:not(.dark) .text-neutral-100 { color: #111827; } html:not(.dark) .text-neutral-300 { color: #4b5563; } html:not(.dark) .text-neutral-400 { color: #6b7280; } html:not(.dark) .text-neutral-500 { color: #9ca3af; } html:not(.dark) .border-dark-600 { border-color: #d1d5db; } html:not(.dark) .border-dark-700 { border-color: #e5e7eb; } html:not(.dark) .text-blue-400 { color: #2563eb; } html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37,99,235,0.12); } html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37,99,235,0.08); } html:not(.dark) .bg-blue-900\/20, html:not(.dark) .bg-blue-900\/30, html:not(.dark) .bg-blue-900\/40 { background-color: rgba(37,99,235,0.08); } html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); } html:not(.dark) .text-red-400 { color: #b91c1c; } html:not(.dark) .bg-red-900\/20 { background-color: rgba(185,28,28,0.06); } html:not(.dark) .border-red-500\/30 { border-color: rgba(185,28,28,0.25); } html:not(.dark) .text-emerald-400 { color: #059669; } html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.08); } html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); } html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; } html:not(.dark) .text-primary { color: #a16207; } html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); } html:not(.dark) .border-primary\/30, html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); } html:not(.dark) .text-sky-400 { color: #0369a1; } html:not(.dark) .text-yellow-400 { color: #a16207; } html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; } html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; } html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }</style></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
+  <div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">✨</span><span class="font-bold text-lg hidden sm:inline">Claude Design Course</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div>
+  <div class="flex items-center space-x-1 sm:space-x-2">
+    <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+    <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Intermediário</span></a>
+    <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avançado</span></a>
+    <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Galeria</span></a>
+    <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Prompts</span></a>
+    <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button>
+  </div>
+</div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span><a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span><span class="text-blue-400">Módulo 2.7</span></div></nav>
+
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.7</span>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧩 Múltiplos design systems</h1>
+    <p class="text-lg text-neutral-400 max-w-3xl">Organização por marca, cross-project, org-level, remix de sistemas visuais (Linear×A24) e versionamento do DESIGN.md como código.</p>
+    <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">25</div><div class="text-xs text-neutral-400">Minutos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Inter.</div><div class="text-xs text-neutral-400">Nível</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Org</div><div class="text-xs text-neutral-400">Tipo</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<!-- SVG famílias estéticas -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-10">
+  <h3 class="text-lg font-semibold text-neutral-200 mb-4 flex items-center"><span class="mr-2">🎨</span> Famílias estéticas documentadas pela comunidade (2026)</h3>
+  <svg viewBox="0 0 760 320" class="w-full" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="20" width="230" height="80" rx="8" fill="#111827" stroke="#60a5fa"/><text x="40" y="42" font-family="Inter" font-size="13" font-weight="700" fill="#60a5fa">Editorial Minimalism</text><text x="40" y="62" font-family="Inter" font-size="10" fill="#bfdbfe">Linear · Stripe · Notion</text><text x="40" y="80" font-family="Inter" font-size="9" fill="#9ca3af">serif + accent limpo · calmo</text>
+
+    <rect x="265" y="20" width="230" height="80" rx="8" fill="#0b1220" stroke="#10b981"/><text x="285" y="42" font-family="Inter" font-size="13" font-weight="700" fill="#10b981">Terminal-Core</text><text x="285" y="62" font-family="Inter" font-size="10" fill="#a7f3d0">Ollama · Warp · Sentry</text><text x="285" y="80" font-family="Inter" font-size="9" fill="#9ca3af">mono · verde/amber · density-high</text>
+
+    <rect x="510" y="20" width="230" height="80" rx="8" fill="#451a03" stroke="#fbbf24"/><text x="530" y="42" font-family="Inter" font-size="13" font-weight="700" fill="#fbbf24">Warm Editorial</text><text x="530" y="62" font-family="Inter" font-size="10" fill="#fef3c7">Claude · Anthropic · Notion</text><text x="530" y="80" font-family="Inter" font-size="9" fill="#9ca3af">off-white · coral · humanidade</text>
+
+    <rect x="20" y="120" width="230" height="80" rx="8" fill="#020617" stroke="#c084fc"/><text x="40" y="142" font-family="Inter" font-size="13" font-weight="700" fill="#c084fc">Cinematic Dark</text><text x="40" y="162" font-family="Inter" font-size="10" fill="#e9d5ff">RunwayML · ElevenLabs · A24</text><text x="40" y="180" font-family="Inter" font-size="9" fill="#9ca3af">dark · oversized type · gradiente</text>
+
+    <rect x="265" y="120" width="230" height="80" rx="8" fill="#111827" stroke="#f87171"/><text x="285" y="142" font-family="Inter" font-size="13" font-weight="700" fill="#f87171">Neon Brutalist</text><text x="285" y="162" font-family="Inter" font-size="10" fill="#fecaca">The Verge · Pitchfork</text><text x="285" y="180" font-family="Inter" font-size="9" fill="#9ca3af">high contrast · geometric · saturação</text>
+
+    <rect x="510" y="120" width="230" height="80" rx="8" fill="#1f2937" stroke="#facc15"/><text x="530" y="142" font-family="Inter" font-size="13" font-weight="700" fill="#facc15">Data-Dense Pro</text><text x="530" y="162" font-family="Inter" font-size="10" fill="#fef9c3">Bloomberg · Warp · SQL clients</text><text x="530" y="180" font-family="Inter" font-size="9" fill="#9ca3af">compact · mono + sans · info-rich</text>
+
+    <rect x="20" y="220" width="720" height="80" rx="8" fill="#4c1d95"/>
+    <text x="380" y="242" text-anchor="middle" font-family="Inter" font-size="13" font-weight="700" fill="#e9d5ff">REMIX: Linear × A24 · Stripe × A24 · Warp × Sentry · Ollama × ElevenLabs</text>
+    <text x="380" y="262" text-anchor="middle" font-family="Inter" font-size="10" fill="#f3e8ff">Cruze 2 famílias para estética única — a fronteira de originalidade em 2026</text>
+    <text x="380" y="282" text-anchor="middle" font-family="Inter" font-size="10" fill="#c4b5fd" font-style="italic">"Make it feel like Stripe but with the ambition of an A24 film"</text>
+  </svg>
+</div>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🗂️ Organização por marca</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Cada <strong>projeto Claude Design</strong> pode ter seu próprio DESIGN.md. Se você é agência com 10 clientes, tenha 10 projetos isolados — não misture.</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6"><h3 class="text-lg font-semibold text-blue-400 mb-3">Convenção de nome</h3><p class="text-neutral-300 text-sm">Nome do projeto = <code class="text-blue-400 text-xs">[cliente]-[tipo]</code>. Ex: <code class="text-blue-400 text-xs">acme-landing</code>, <code class="text-blue-400 text-xs">acme-pitch-q3</code>, <code class="text-blue-400 text-xs">beta-marketing</code>. Facilita dropdown e organização visual.</p></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🔒 Controle de acesso: view vs edit</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Share URL tem 3 níveis: <strong>view-only</strong>, <strong>comment</strong>, <strong>edit</strong>. Para DS enterprise, restrinja edit a quem é guardião da marca.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<table class="w-full text-sm">
+<thead><tr class="border-b border-blue-500/30"><th class="text-left pb-2 text-blue-300">Persona</th><th class="text-left pb-2 text-blue-300">Nível ideal</th></tr></thead>
+<tbody class="text-neutral-300">
+<tr class="border-b border-dark-700"><td class="py-2">Designer sênior (guardião da marca)</td><td class="py-2"><span class="text-emerald-400">edit</span></td></tr>
+<tr class="border-b border-dark-700"><td class="py-2">Dev sênior (implementador)</td><td class="py-2"><span class="text-blue-400">comment</span></td></tr>
+<tr class="border-b border-dark-700"><td class="py-2">PM / Marketing (usa o design)</td><td class="py-2"><span class="text-blue-400">comment</span></td></tr>
+<tr><td class="py-2">Stakeholder externo (só aprova)</td><td class="py-2"><span class="text-amber-400">view-only</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🔄 Cross-project: referenciar, não copiar (limitação)</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">System prompt é explícito: cross-project é <strong>read-only</strong>. Claude pode LER o arquivo, mas se você referenciar um asset (imagem, CSS), o HTML renderizado não carrega — path externo.</p>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6"><h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Solução</h3><p class="text-neutral-300 text-sm mb-2">Se você precisa USAR asset de outro projeto:</p>
+<pre class="bg-dark-900 p-2 rounded text-xs text-neutral-300"><code>"Copie o asset logo.svg do projeto 'acme-pitch'
+ para o projeto atual. Depois use no hero."</code></pre>
+<p class="text-neutral-400 text-xs mt-2">Claude invoca <code class="text-red-400 text-xs">copy_files</code> nativamente.</p></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🏢 Org-level design systems</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Plano Max/Enterprise permite DS compartilhado entre toda a org. Uma única fonte de verdade para todos os projetos internos — consistência sem coordenação manual.</p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6"><h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Fluxo ideal enterprise</h3>
+<ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+<li>Admin cria o DS oficial da empresa (acessível a todos)</li>
+<li>Membros da equipe começam projetos já com o DS carregado</li>
+<li>Mudanças de DS passam por PR/review no admin</li>
+<li>Rebranding = versionar DS (v1 legado, v2 atual)</li>
+</ol></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🎨 Remix de sistemas visuais</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O hack da comunidade mais poderoso de 2026: <strong>cruzar duas famílias estéticas</strong> produz estéticas únicas que ninguém mais tem. Documentado no repo <code class="text-blue-400 text-xs">awesome-claude-design</code>.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6"><h3 class="text-lg font-semibold text-blue-400 mb-3">Combinações testadas</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Linear × A24</strong> — editorial tech + cinematográfico = SaaS com alma</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Stripe × A24</strong> — fintech polido + ousadia filme = pitch deck inesquecível</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Warp × Sentry</strong> — terminal + observabilidade = dev tool com personalidade</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Ollama × ElevenLabs</strong> — CLI + voz = landing page premium, tech refinado</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Notion × Bloomberg</strong> — editorial + data-dense = dashboard "quero usar"</span></li>
+</ul></div>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6"><h3 class="text-lg font-semibold text-blue-400 mb-3">Prompt-receita</h3>
+<pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>"Apply the DESIGN.md of Linear (visite linear.app).
+ But injecte a feeling of A24 films:
+ - oversized typography em momentos-chave
+ - spacing generoso como trailer
+ - micro-motion subtle em hover
+ Keep Linear's ruthless content-first approach."</code></pre></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📜 Versionamento do DESIGN.md</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Trate DESIGN.md como código. Commit em git, branches para experimentos, tags para rebrands. Claude respeita qualquer versão que você apontar.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6"><h3 class="text-lg font-semibold text-blue-400 mb-3">Padrão que funciona</h3>
+<pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>design-system/
+├── DESIGN.md         ← versão atual (v2.0)
+├── DESIGN-v1.md      ← legado (rebrand 2025)
+├── DESIGN-v2.md      ← atual (tag explícita)
+├── DESIGN-exp.md     ← experimental próximo rebrand
+└── CHANGELOG.md      ← o que mudou entre versões</code></pre>
+<p class="text-neutral-400 text-xs mt-3">Ao começar projeto: "Use DESIGN-v2.md como base". Projeto legado: "Use DESIGN-v1.md (marca antiga)".</p></div>
+</section>
+
+<section class="mb-12"><div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+  <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">🎉</span> Resumo do Módulo <em class="font-normal text-neutral-400 text-base ml-2">(fim da Trilha 2!)</em></h2>
+  <div class="space-y-4 mb-8">
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Um DS por projeto</strong><span class="text-neutral-400"> — convenção de nome cliente-tipo.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Acesso granular</strong><span class="text-neutral-400"> — view / comment / edit. Guardião da marca = edit.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Cross-project read-only</strong><span class="text-neutral-400"> — copy_files para usar assets de outros projetos.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Org-level DS</strong><span class="text-neutral-400"> — Max/Enterprise: single source, toda equipe usa.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Remix estético</strong><span class="text-neutral-400"> — Linear×A24, Stripe×A24, Warp×Sentry. Originalidade 2026.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">DS-as-code</strong><span class="text-neutral-400"> — git, branches, tags, CHANGELOG. Rebranding sem quebrar legados.</span></div></div>
+  </div>
+
+  <div class="bg-primary/10 rounded-lg p-6 border border-primary/30 mb-8">
+    <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚀</span> Trilha 2 concluída!</h3>
+    <p class="text-neutral-300 text-sm mb-3">Você domina agora:</p>
+    <ul class="space-y-1 text-neutral-300 text-sm">
+      <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>DESIGN.md canônico com 7 seções</span></li>
+      <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Context stacking de múltiplas fontes</span></li>
+      <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>questions_v2 e pre-answer strategy</span></li>
+      <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>5 modos de iteração (comments, inline, drag, draw, chat)</span></li>
+      <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Protocolo Tweaks EDITMODE + postMessage</span></li>
+      <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Variações com axis e escada safe→novel</span></li>
+      <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Múltiplos DS, cross-project, remix estético</span></li>
+    </ul>
+  </div>
+
+  <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-blue-400 mb-2">Próxima trilha:</h3><p class="text-neutral-300">T3 — 🟣 <strong>Avançado & Expert</strong> — system prompt vazado, starter components, verificador, Haiku-live, manipulação avançada.</p></div>
+  <div class="flex flex-col sm:flex-row gap-4"><a href="modulo-2-6.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 2.6</a><a href="../trilha3/index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Trilha 3 · Avançado →</a></div>
+</div></section>
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Claude Design Course · INEMA.CLUB · 2026</p></div></footer>
+<script>const themeToggle=document.getElementById('theme-toggle'),d=document.getElementById('theme-toggle-dark-icon'),l=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){d.classList.remove('hidden');h.classList.remove('dark');}else{l.classList.remove('hidden');}themeToggle.addEventListener('click',()=>{d.classList.toggle('hidden');l.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light');});</script>
+</body></html>

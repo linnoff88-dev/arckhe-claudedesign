@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.4 · Primeiro design em 5 min | T1 Fundamentos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .bg-emerald-900\/20, html:not(.dark) .bg-emerald-900\/30, html:not(.dark) .bg-emerald-900\/40 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30, html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
+    <div class="flex items-center space-x-4">
+      <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">✨</span><span class="font-bold text-lg hidden sm:inline">Claude Design Course</span></a>
+      <span class="text-neutral-600">|</span>
+      <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+    </div>
+    <div class="flex items-center space-x-1 sm:space-x-2">
+      <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+      <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Intermediário</span></a>
+      <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avançado</span></a>
+      <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Galeria</span></a>
+      <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Prompts</span></a>
+      <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+      </button>
+    </div>
+  </div></div>
+</nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span><a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span><span class="text-emerald-400">Módulo 1.4</span></div></nav>
+
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.4</span>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎨 Seu primeiro design (landing em 5 min)</h1>
+    <p class="text-lg text-neutral-400 max-w-3xl">Tutorial hands-on. Do prompt inicial ao primeiro export em 6 passos cronometrados. Abra o <a href="https://claude.ai/design" target="_blank" class="text-emerald-400 underline">claude.ai/design</a> em outra aba — vamos fazer junto.</p>
+    <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Passos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">~5</div><div class="text-xs text-neutral-400">Min real</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<!-- SVG Timeline de 5 min -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-10">
+  <h3 class="text-lg font-semibold text-neutral-200 mb-4 flex items-center"><span class="mr-2">⏱️</span> A cronometragem real: 5 minutos de ponta-a-ponta</h3>
+  <svg viewBox="0 0 760 200" class="w-full" xmlns="http://www.w3.org/2000/svg">
+    <line x1="40" y1="100" x2="720" y2="100" stroke="#4b5563" stroke-width="2"/>
+    <line x1="40" y1="95" x2="40" y2="105" stroke="#6b7280"/>
+    <line x1="720" y1="95" x2="720" y2="105" stroke="#6b7280"/>
+    <text x="40" y="125" text-anchor="middle" font-family="Inter" font-size="10" fill="#9ca3af">0:00</text>
+    <text x="720" y="125" text-anchor="middle" font-family="Inter" font-size="10" fill="#9ca3af">5:00</text>
+
+    <circle cx="110" cy="100" r="18" fill="#10b981"/><text x="110" y="104" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#fff">1</text>
+    <text x="110" y="70" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#6ee7b7">Prep</text>
+    <text x="110" y="155" text-anchor="middle" font-family="Inter" font-size="9" fill="#9ca3af">30s</text>
+
+    <circle cx="220" cy="100" r="18" fill="#10b981"/><text x="220" y="104" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#fff">2</text>
+    <text x="220" y="70" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#6ee7b7">Prompt</text>
+    <text x="220" y="155" text-anchor="middle" font-family="Inter" font-size="9" fill="#9ca3af">45s</text>
+
+    <circle cx="340" cy="100" r="18" fill="#10b981"/><text x="340" y="104" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#fff">3</text>
+    <text x="340" y="70" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#6ee7b7">Perguntas</text>
+    <text x="340" y="155" text-anchor="middle" font-family="Inter" font-size="9" fill="#9ca3af">90s</text>
+
+    <circle cx="460" cy="100" r="18" fill="#10b981"/><text x="460" y="104" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#fff">4</text>
+    <text x="460" y="70" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#6ee7b7">Geração</text>
+    <text x="460" y="155" text-anchor="middle" font-family="Inter" font-size="9" fill="#9ca3af">60-120s (espera)</text>
+
+    <circle cx="590" cy="100" r="18" fill="#10b981"/><text x="590" y="104" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#fff">5</text>
+    <text x="590" y="70" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#6ee7b7">Tweaks</text>
+    <text x="590" y="155" text-anchor="middle" font-family="Inter" font-size="9" fill="#9ca3af">45s</text>
+
+    <circle cx="690" cy="100" r="18" fill="#facc15"/><text x="690" y="104" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#111827">6</text>
+    <text x="690" y="70" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#facc15">Export</text>
+    <text x="690" y="155" text-anchor="middle" font-family="Inter" font-size="9" fill="#9ca3af">20s</text>
+  </svg>
+</div>
+
+<!-- PASSO 1 -->
+<section id="topico-1" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🚀 Passo 1 (30s): Preparar 3 inputs</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Antes de abrir a ferramenta, prepare três coisas rápidas:</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <div class="bg-dark-800 rounded-xl border border-dark-600 p-5"><div class="text-xs text-emerald-400 font-bold mb-2">1️⃣ BRIEF (1 parágrafo)</div><p class="text-sm text-neutral-300">"App X para audiência Y. Objetivo: conversão de email. Offer: [valor]."</p></div>
+    <div class="bg-dark-800 rounded-xl border border-dark-600 p-5"><div class="text-xs text-emerald-400 font-bold mb-2">2️⃣ REFERÊNCIA (1 URL)</div><p class="text-sm text-neutral-300">Site de competidor ou marca cujo <em>feeling</em> você admira. Não precisa ser perfeito.</p></div>
+    <div class="bg-dark-800 rounded-xl border border-dark-600 p-5"><div class="text-xs text-emerald-400 font-bold mb-2">3️⃣ PALETA (opcional)</div><p class="text-sm text-neutral-300">2-3 hex codes ou um logo. Se não tiver, <em>descreva o feeling</em>.</p></div>
+  </div>
+</section>
+
+<!-- PASSO 2 -->
+<section id="topico-2" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">💭 Passo 2 (45s): O primeiro prompt</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Abra claude.ai/design. Cole o template abaixo (personalize os <code class="text-emerald-400 text-sm">[colchetes]</code>):</p>
+  <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">📋</span> Template pronto</h3>
+    <pre class="bg-dark-900 p-4 rounded text-xs text-neutral-200 border border-dark-600 overflow-auto"><code>Crie uma landing page para [produto] que resolve [dor]
+para [audiência específica].
+
+Objetivo principal: captura de email.
+
+Feeling: [late-night cinematic | editorial minimalism |
+warm editorial | outro]. Inspiração visual em [URL anexa].
+
+Estrutura: hero com headline &lt;8 palavras, 3 benefícios
+com ícones, 1 social proof (quotes), FAQ curta, CTA duplo.
+
+Restrições: sem lorem ipsum, sem orbes flutuantes,
+sem gradientes blob, sem emojis no corpo.
+
+Ask me questions before generating.</code></pre>
+  </div>
+  <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">⚡</span> Por que esse template funciona</h3>
+    <ul class="space-y-2 text-neutral-300 text-sm">
+      <li class="flex items-start space-x-2"><span class="text-primary mt-1">•</span><span><strong>"Ask me questions"</strong> no fim ativa o questions_v2 explicitamente — você GANHA as 10 perguntas</span></li>
+      <li class="flex items-start space-x-2"><span class="text-primary mt-1">•</span><span><strong>Restrições</strong> desativam o viés newspaper-minimalist default</span></li>
+      <li class="flex items-start space-x-2"><span class="text-primary mt-1">•</span><span><strong>Feeling nomeado</strong> ancora a estética — sem isso, Claude improvisa</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PASSO 3 -->
+<section id="topico-3" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">❓ Passo 3 (90s): Responder as 10 perguntas</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Claude vai fazer 10+ perguntas. É tentador pular — <strong class="text-emerald-400">não pule</strong>. Aí mora o ROI.</p>
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h4 class="font-semibold text-emerald-400 mb-3">Exemplo real de perguntas que aparecem</h4>
+    <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+      <li>Qual design system/UI kit existente vou usar como base?</li>
+      <li>Quantas variações você quer do layout geral?</li>
+      <li>Quantas variações do hero especificamente?</li>
+      <li>Interessa UX inovador, ou componentes/estilos familiares?</li>
+      <li>Quão importante é o fluxo vs. o texto vs. o visual?</li>
+      <li>Que Tweaks você quer expostos no canvas?</li>
+      <li>Audiência é mais técnica, executiva, ou geral?</li>
+      <li>Tem restrições de tamanho (viewport, mobile-first)?</li>
+      <li>Deve incluir dark mode?</li>
+      <li>Handoff final é para qual destino (Canva, Claude Code, PDF)?</li>
+    </ol>
+    <p class="text-neutral-400 text-xs mt-3">Respostas curtas (2-5 palavras) são ideais — não escreva ensaios.</p>
+  </div>
+</section>
+
+<!-- PASSO 4 -->
+<section id="topico-4" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">⚡ Passo 4 (60-120s): Primeira geração</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Claude vai: (1) planejar estrutura, (2) explorar recursos (web capture da sua URL, ler arquivos anexos), (3) montar componentes React/HTML, (4) renderizar no canvas.</p>
+  <div class="space-y-4 mb-6">
+    <div class="flex items-start space-x-4">
+      <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold text-sm">A</span></div>
+      <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600"><p class="text-neutral-300 text-sm">Você <strong>vê</strong> Claude planejando (mensagens de "vou agora explorar...", "encontrei uma paleta...")</p></div>
+    </div>
+    <div class="flex items-start space-x-4">
+      <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold text-sm">B</span></div>
+      <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600"><p class="text-neutral-300 text-sm">Canvas atualiza progressivamente — hero aparece, depois seções, depois detalhes</p></div>
+    </div>
+    <div class="flex items-start space-x-4">
+      <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold text-sm">C</span></div>
+      <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600"><p class="text-neutral-300 text-sm">Mensagem final: "Pronto. Role pelo design. Posso iterar quando quiser." (Verificador silencioso já rodou em background.)</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PASSO 5 -->
+<section id="topico-5" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🎛️ Passo 5 (45s): Ajustar via Tweaks</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Abra o painel Tweaks (toolbar, ícone 🎛️). Você vai ver os controles que Claude escolheu — tipicamente: cor principal, tamanho de fonte, densidade, tema dark/light.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+      <h4 class="font-bold text-emerald-400 mb-3">Use Tweaks para…</h4>
+      <ul class="space-y-2 text-neutral-300 text-sm"><li>Cor principal + tons derivados</li><li>Fonte (headline e body)</li><li>Densidade (spacing global)</li><li>Tema dark/light</li><li>Variantes A/B prontas</li></ul>
+    </div>
+    <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+      <h4 class="font-bold text-neutral-200 mb-3">Se o Tweak que você quer não existe…</h4>
+      <p class="text-neutral-300 text-sm mb-3">Peça no chat: <em>"adicione um Tweak para [controlar X]"</em>. Claude implementa e ele fica persistente.</p>
+      <p class="text-neutral-400 text-xs">Ex: "adicione um Tweak para alternar entre 2 layouts de hero (A: text-left, B: text-center)".</p>
+    </div>
+  </div>
+</section>
+
+<!-- PASSO 6 -->
+<section id="topico-6" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📤 Passo 6 (20s): Exportar</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Decisão rápida baseada no que você vai fazer a seguir:</p>
+
+  <!-- SVG decisão -->
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-neutral-200 mb-4 flex items-center"><span class="mr-2">🎯</span> Decisão de export (landing page)</h3>
+    <svg viewBox="0 0 760 180" class="w-full" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="20" width="180" height="60" rx="10" fill="#064e3b" stroke="#10b981"/>
+      <text x="110" y="42" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#6ee7b7">Vai codar depois</text>
+      <text x="110" y="60" text-anchor="middle" font-family="Inter" font-size="10" fill="#a7f3d0">no Claude Code</text>
+      <line x1="110" y1="80" x2="110" y2="110" stroke="#10b981"/>
+      <rect x="30" y="110" width="160" height="50" rx="8" fill="#facc15"/><text x="110" y="135" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#111827">"Export → Claude Code"</text><text x="110" y="150" text-anchor="middle" font-family="Inter" font-size="9" fill="#111827">bundle completo</text>
+
+      <rect x="220" y="20" width="180" height="60" rx="10" fill="#1e3a8a" stroke="#60a5fa"/>
+      <text x="310" y="42" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#bfdbfe">Vai fazer deploy</text>
+      <text x="310" y="60" text-anchor="middle" font-family="Inter" font-size="10" fill="#bfdbfe">sem tocar código</text>
+      <line x1="310" y1="80" x2="310" y2="110" stroke="#60a5fa"/>
+      <rect x="230" y="110" width="160" height="50" rx="8" fill="#facc15"/><text x="310" y="135" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#111827">"Export HTML"</text><text x="310" y="150" text-anchor="middle" font-family="Inter" font-size="9" fill="#111827">pra Netlify/Vercel</text>
+
+      <rect x="420" y="20" width="180" height="60" rx="10" fill="#4c1d95" stroke="#c084fc"/>
+      <text x="510" y="42" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#e9d5ff">Vai revisar com time</text>
+      <text x="510" y="60" text-anchor="middle" font-family="Inter" font-size="10" fill="#e9d5ff">e comentar</text>
+      <line x1="510" y1="80" x2="510" y2="110" stroke="#c084fc"/>
+      <rect x="430" y="110" width="160" height="50" rx="8" fill="#facc15"/><text x="510" y="135" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#111827">"Share URL interna"</text><text x="510" y="150" text-anchor="middle" font-family="Inter" font-size="9" fill="#111827">view ou edit</text>
+
+      <rect x="620" y="20" width="120" height="60" rx="10" fill="#7f1d1d" stroke="#f87171"/>
+      <text x="680" y="42" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#fca5a5">Apresentar</text>
+      <text x="680" y="60" text-anchor="middle" font-family="Inter" font-size="10" fill="#fecaca">ao vivo ou slides</text>
+      <line x1="680" y1="80" x2="680" y2="110" stroke="#f87171"/>
+      <rect x="630" y="110" width="100" height="50" rx="8" fill="#facc15"/><text x="680" y="135" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#111827">PDF / Present</text>
+    </svg>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="mb-12">
+  <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+    <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
+    <div class="space-y-4 mb-8">
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Prep de 30s</strong><span class="text-neutral-400"> — brief + URL de referência + paleta. Fora da ferramenta.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Template de prompt</strong><span class="text-neutral-400"> — feeling + audiência + estrutura + restrições + "ask me questions".</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Responder as 10 perguntas</strong><span class="text-neutral-400"> — 90s bem investidos; respostas curtas.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Primeira geração</strong><span class="text-neutral-400"> — 60-120s de espera. Verificador silencioso roda sozinho.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Tweaks</strong><span class="text-neutral-400"> — 45s para micro-ajustes. Peça novos Tweaks via chat se faltar.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Export por uso</strong><span class="text-neutral-400"> — Claude Code / HTML / Share URL / PDF. Decisão de 20s.</span></div></div>
+    </div>
+    <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+      <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+      <p class="text-neutral-300">1.5 — 🔄 O ciclo: gerar → refinar → exportar</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="modulo-1-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 1.3</a>
+      <a href="modulo-1-5.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Módulo 1.5 →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Claude Design Course · INEMA.CLUB · 2026</p></div></footer>
+
+<script>
+  const themeToggle=document.getElementById('theme-toggle'),d=document.getElementById('theme-toggle-dark-icon'),l=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+  if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){d.classList.remove('hidden');h.classList.remove('dark');}else{l.classList.remove('hidden');}
+  themeToggle.addEventListener('click',()=>{d.classList.toggle('hidden');l.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light');});
+</script>
+</body>
+</html>

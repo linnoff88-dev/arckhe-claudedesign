@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.3 · Inputs | T1 Fundamentos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .bg-emerald-900\/20, html:not(.dark) .bg-emerald-900\/30, html:not(.dark) .bg-emerald-900\/40 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .text-red-400 { color: #b91c1c; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(185,28,28,0.06); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(185,28,28,0.25); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30, html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-14">
+      <div class="flex items-center space-x-4">
+        <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">✨</span><span class="font-bold text-lg hidden sm:inline">Claude Design Course</span></a>
+        <span class="text-neutral-600">|</span>
+        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+      </div>
+      <div class="flex items-center space-x-1 sm:space-x-2">
+        <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+        <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Intermediário</span></a>
+        <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avançado</span></a>
+        <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Galeria</span></a>
+        <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Prompts</span></a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span><a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span><span class="text-emerald-400">Módulo 1.3</span></div></nav>
+
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.3</span>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">📥 Inputs: texto, arquivo, URL, marca</h1>
+    <p class="text-lg text-neutral-400 max-w-3xl">O que dar — e em que ordem — para ter o melhor output desde o primeiro prompt. A regra de ouro: <strong class="text-emerald-400">contexto &gt; prompt perfeito</strong>.</p>
+    <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">25</div><div class="text-xs text-neutral-400">Minutos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<!-- SVG Pilha de inputs -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-10">
+  <h3 class="text-lg font-semibold text-neutral-200 mb-4 flex items-center"><span class="mr-2">📚</span> A pilha de inputs — do genérico ao específico</h3>
+  <svg viewBox="0 0 760 340" class="w-full" xmlns="http://www.w3.org/2000/svg">
+    <text x="30" y="30" font-family="Inter" font-size="11" font-weight="700" fill="#6b7280">↑ MAIS ESPECÍFICO · MELHOR OUTPUT</text>
+    <rect x="30" y="50" width="700" height="40" rx="8" fill="#064e3b" stroke="#10b981"/>
+    <text x="50" y="74" font-family="Inter" font-size="13" font-weight="700" fill="#6ee7b7">5. Design System completo (DESIGN.md + repo + guideline)</text>
+    <text x="680" y="74" text-anchor="end" font-family="Inter" font-size="10" fill="#a7f3d0">Nível Pro</text>
+
+    <rect x="60" y="100" width="640" height="40" rx="8" fill="#065f46" stroke="#10b981"/>
+    <text x="80" y="124" font-family="Inter" font-size="12" font-weight="700" fill="#6ee7b7">4. GitHub repo + marca (código-fonte real)</text>
+    <text x="660" y="124" text-anchor="end" font-family="Inter" font-size="10" fill="#a7f3d0">Ótimo</text>
+
+    <rect x="90" y="150" width="580" height="40" rx="8" fill="#1e40af" stroke="#60a5fa"/>
+    <text x="110" y="174" font-family="Inter" font-size="12" font-weight="600" fill="#bfdbfe">3. URL de referência (web capture de competidor)</text>
+    <text x="640" y="174" text-anchor="end" font-family="Inter" font-size="10" fill="#bfdbfe">Bom</text>
+
+    <rect x="120" y="200" width="520" height="40" rx="8" fill="#6b21a8" stroke="#c084fc"/>
+    <text x="140" y="224" font-family="Inter" font-size="12" font-weight="600" fill="#e9d5ff">2. Arquivos: DOCX/PPTX/XLSX/PDF + imagens</text>
+    <text x="620" y="224" text-anchor="end" font-family="Inter" font-size="10" fill="#e9d5ff">Razoável</text>
+
+    <rect x="150" y="250" width="460" height="40" rx="8" fill="#78350f" stroke="#fbbf24"/>
+    <text x="170" y="274" font-family="Inter" font-size="12" font-weight="600" fill="#fde68a">1. Só texto (prompt solto)</text>
+    <text x="590" y="274" text-anchor="end" font-family="Inter" font-size="10" fill="#fde68a">Newspaper default</text>
+
+    <text x="380" y="320" text-anchor="middle" font-family="Inter" font-size="11" fill="#9ca3af">↓ MAIS GENÉRICO · VIÉS NEWSPAPER-MINIMALIST TOMA CONTA</text>
+  </svg>
+  <p class="text-xs text-neutral-500 text-center mt-2">Quanto mais alta a camada, melhor o output. A camada 5 é rara — mas leva 15 min pra montar e transforma resultado.</p>
+</div>
+
+<!-- TÓPICO 1 -->
+<section id="topico-1" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">✍️ Input texto: anatomia do prompt ideal</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Prompt em linguagem natural não é "escrever bem" — é <strong class="text-emerald-400">estruturar</strong>. A fórmula que funciona: <code class="text-emerald-400">feeling + audiência + restrições</code>.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+      <h4 class="font-bold text-red-400 mb-3">✗ Prompt solto</h4>
+      <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>"Crie uma landing page moderna
+e bonita para meu SaaS de
+produtividade."</code></pre>
+      <p class="text-neutral-400 text-xs mt-3">Zero audiência, zero feeling, zero restrição → newspaper default.</p>
+    </div>
+    <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+      <h4 class="font-bold text-emerald-400 mb-3">✓ Prompt estruturado</h4>
+      <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>"Landing para Foco24 — focus tool
+para solo founders que odeiam
+notificação. Feeling: late-night
+cinematic (A24). Audiência: lê
+Hacker News. Sem gradientes,
+sem orbes flutuantes."</code></pre>
+      <p class="text-neutral-400 text-xs mt-3">Feeling nomeado + audiência específica + restrições explícitas → output premium.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TÓPICO 2 -->
+<section id="topico-2" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📄 Arquivos: DOCX, PPTX, XLSX, PDF</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Claude Design lê documentos nativamente. Para DOCX/PPTX/XLSX, extrai via zip+XML. Para PDF, invoca a skill <code class="text-emerald-400 text-sm">read_pdf</code>. Você nunca precisa copiar-colar o conteúdo.</p>
+  <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💎</span> Use case matador: PDF → Slides</h3>
+    <p class="text-neutral-300 mb-4 text-sm">Anexe um PDF longo (relatório, paper, e-book) e peça:</p>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 border border-dark-600 mb-3"><code>"Transforme este PDF em uma apresentação.
+Extraia apenas as ideias mais importantes.
+Simplifique informação complexa.
+Cada slide deve comunicar UMA ideia clara."</code></pre>
+    <p class="text-neutral-400 text-xs">Funciona muito bem. Resultado: deck pronto em 2 min, mantendo a hierarquia conceitual do documento original.</p>
+  </div>
+</section>
+
+<!-- TÓPICO 3 -->
+<section id="topico-3" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🖼️ Imagens de referência</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Opus 4.7 tem visão nativa. Anexe 2-4 screenshots de sites/apps que você gosta — Claude extrai padrões visuais (cor, tipografia, estrutura, densidade) e aplica. Mais eficiente que descrever em texto.</p>
+  <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">⚠️</span> Aviso do system prompt</h3>
+    <p class="text-neutral-300 text-sm">"Claude é melhor em recriar interfaces baseadas em <strong>código</strong> do que em screenshots. Quando tiver fonte de dados, foque mais em explorar código e contexto de design do que screenshots."</p>
+    <p class="text-neutral-400 text-xs mt-2">Ou seja: se tem o repo, prefira o repo. Screenshot é plano B.</p>
+  </div>
+</section>
+
+<!-- TÓPICO 4 -->
+<section id="topico-4" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🌐 URL de site (web capture nativo)</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Cole qualquer URL no painel — Claude captura, extrai paleta, tipografia e estrutura. Um dos hacks oficiais da comunidade: <strong class="text-emerald-400">apontar para o site do competidor</strong> para ter um ponto de partida estético sólido sem reinventar a roda.</p>
+  <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🎯</span> Prompt de referência cruzada</h3>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 border border-dark-600 overflow-auto"><code>"Visite linear.app. Extraia paleta,
+tipografia, densidade e spacing.
+Gere um DESIGN.md derivado disso.
+Depois, use esse DESIGN.md para
+criar minha landing page de
+[descrição do produto]."</code></pre>
+  </div>
+</section>
+
+<!-- TÓPICO 5 -->
+<section id="topico-5" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔗 GitHub repo: extrair do código real</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">A força máxima. Cole URL <code class="text-emerald-400 text-sm">github.com/owner/repo</code> — Claude usa <code class="text-emerald-400 text-sm">github_list_repos</code>, <code class="text-emerald-400 text-sm">github_get_tree</code>, <code class="text-emerald-400 text-sm">github_import_files</code> para navegar e importar seletivamente.</p>
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h4 class="font-semibold text-emerald-400 mb-3">Fluxo automático</h4>
+    <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+      <li>Claude extrai <code class="text-emerald-400 text-xs">owner/repo/ref/path</code> da URL</li>
+      <li>Pega <code class="text-emerald-400 text-xs">default_branch</code> via <code class="text-emerald-400 text-xs">github_list_repos</code></li>
+      <li>Lista árvore com <code class="text-emerald-400 text-xs">github_get_tree</code> + <code class="text-emerald-400 text-xs">path_prefix</code></li>
+      <li>Importa subset relevante com <code class="text-emerald-400 text-xs">github_import_files</code></li>
+      <li>Lê os arquivos importados — extrai tokens, componentes, paleta</li>
+    </ol>
+  </div>
+</section>
+
+<!-- TÓPICO 6 -->
+<section id="topico-6" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🎨 Marca / Design System: o combo mágico</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">O nível 5 da pilha. Combine: <strong>(1) brand guidelines</strong> + <strong>(2) repo com código real</strong> + <strong>(3) páginas reais renderizadas</strong> + <strong>(4) descrição curta do estilo ("tech, moderno, profissional")</strong>. Resultado: tudo que Claude gerar sai consistente desde o primeiro render.</p>
+  <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🚀</span> DESIGN.md: a âncora</h3>
+    <p class="text-neutral-300 text-sm mb-3">Claude mantém automaticamente um arquivo <code class="text-emerald-400">DESIGN.md</code> no projeto com:</p>
+    <ul class="space-y-2 text-neutral-300 text-sm">
+      <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Cores primárias, secundárias, neutras (hex exatos)</span></li>
+      <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Font stacks (headline + body + mono)</span></li>
+      <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Spacing scale, border radii, shadows</span></li>
+      <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Componentes principais + variantes</span></li>
+      <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Tom de voz / copywriting</span></li>
+    </ul>
+    <p class="text-neutral-400 text-xs mt-3">Orgs têm múltiplos DESIGN.md (por marca/projeto), controle de acesso (view/edit).</p>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="mb-12">
+  <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+    <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
+    <div class="space-y-4 mb-8">
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Pilha de inputs</strong><span class="text-neutral-400"> — texto &lt; arquivos &lt; URL &lt; repo &lt; design system. Quanto mais alto, melhor.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Fórmula de texto</strong><span class="text-neutral-400"> — feeling + audiência + restrições &gt; "crie algo bonito".</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Arquivos nativos</strong><span class="text-neutral-400"> — DOCX/PPTX/XLSX via zip+XML; PDF via skill read_pdf.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Código &gt; screenshot</strong><span class="text-neutral-400"> — o próprio system prompt diz isso. Prefira repo quando existe.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Web capture</strong><span class="text-neutral-400"> — apontar para competidor → DESIGN.md derivado → seu design.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">DESIGN.md é a âncora</strong><span class="text-neutral-400"> — mantém consistência entre todos os projetos da marca.</span></div></div>
+    </div>
+    <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+      <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+      <p class="text-neutral-300">1.4 — 🎨 Seu primeiro design (landing em 5 min)</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="modulo-1-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 1.2</a>
+      <a href="modulo-1-4.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Módulo 1.4 →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Claude Design Course · INEMA.CLUB · 2026</p></div></footer>
+
+<script>
+  const themeToggle=document.getElementById('theme-toggle'),d=document.getElementById('theme-toggle-dark-icon'),l=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+  if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){d.classList.remove('hidden');h.classList.remove('dark');}else{l.classList.remove('hidden');}
+  themeToggle.addEventListener('click',()=>{d.classList.toggle('hidden');l.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light');});
+</script>
+</body>
+</html>

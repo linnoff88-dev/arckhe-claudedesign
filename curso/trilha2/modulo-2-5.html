@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Módulo 2.5 · Tweaks permanentes | T2</title>
+<script src="https://cdn.tailwindcss.com"></script><script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body { font-family: 'Inter', sans-serif; } .dark body { background-color: #111827; } html:not(.dark) body { background-color: #f8fafc; } html:not(.dark) .bg-dark-900 { background-color: #ffffff; } html:not(.dark) .bg-dark-800 { background-color: #f9fafb; } html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; } html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; } html:not(.dark) .text-neutral-100 { color: #111827; } html:not(.dark) .text-neutral-300 { color: #4b5563; } html:not(.dark) .text-neutral-400 { color: #6b7280; } html:not(.dark) .text-neutral-500 { color: #9ca3af; } html:not(.dark) .border-dark-600 { border-color: #d1d5db; } html:not(.dark) .border-dark-700 { border-color: #e5e7eb; } html:not(.dark) .text-blue-400 { color: #2563eb; } html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37,99,235,0.12); } html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37,99,235,0.08); } html:not(.dark) .bg-blue-900\/20, html:not(.dark) .bg-blue-900\/30, html:not(.dark) .bg-blue-900\/40 { background-color: rgba(37,99,235,0.08); } html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); } html:not(.dark) .text-red-400 { color: #b91c1c; } html:not(.dark) .bg-red-900\/20 { background-color: rgba(185,28,28,0.06); } html:not(.dark) .border-red-500\/30 { border-color: rgba(185,28,28,0.25); } html:not(.dark) .text-emerald-400 { color: #059669; } html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.08); } html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); } html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; } html:not(.dark) .text-primary { color: #a16207; } html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); } html:not(.dark) .border-primary\/30, html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); } html:not(.dark) .text-sky-400 { color: #0369a1; } html:not(.dark) .text-yellow-400 { color: #a16207; } html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; } html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; } html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }</style></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
+  <div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">✨</span><span class="font-bold text-lg hidden sm:inline">Claude Design Course</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div>
+  <div class="flex items-center space-x-1 sm:space-x-2">
+    <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+    <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Intermediário</span></a>
+    <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avançado</span></a>
+    <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Galeria</span></a>
+    <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Prompts</span></a>
+    <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button>
+  </div>
+</div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span><a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span><span class="text-blue-400">Módulo 2.5</span></div></nav>
+
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.5</span>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎛️ Tweaks: edições permanentes, não prévias</h1>
+    <p class="text-lg text-neutral-400 max-w-3xl">Como Tweaks realmente funcionam. Protocolo EDITMODE, postMessage, como pedir Tweaks customizados, e como projetar um painel discreto.</p>
+    <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Inter.</div><div class="text-xs text-neutral-400">Nível</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Técnico</div><div class="text-xs text-neutral-400">Tipo</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<!-- SVG mecanismo Tweaks -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-10">
+  <h3 class="text-lg font-semibold text-neutral-200 mb-4 flex items-center"><span class="mr-2">⚙️</span> Mecanismo: como um Tweak vira mudança em disco</h3>
+  <svg viewBox="0 0 760 340" class="w-full" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="20" width="200" height="60" rx="8" fill="#facc15"/><text x="120" y="45" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#111827">Você move slider</text><text x="120" y="62" text-anchor="middle" font-family="Inter" font-size="10" fill="#111827">"primaryColor → #2ea0ff"</text>
+
+    <line x1="120" y1="80" x2="120" y2="110" stroke="#4b5563" stroke-dasharray="3,3"/>
+    <rect x="20" y="110" width="200" height="60" rx="8" fill="#1e40af" stroke="#60a5fa"/><text x="120" y="135" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#bfdbfe">HTML do mock</text><text x="120" y="153" text-anchor="middle" font-family="Inter" font-size="10" fill="#dbeafe">postMessage(__edit_mode_set_keys)</text>
+
+    <line x1="220" y1="140" x2="300" y2="140" stroke="#60a5fa" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect x="300" y="110" width="200" height="60" rx="8" fill="#1e40af" stroke="#60a5fa"/><text x="400" y="135" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#bfdbfe">Host parseia</text><text x="400" y="153" text-anchor="middle" font-family="Inter" font-size="10" fill="#dbeafe">merge de chaves recebidas</text>
+
+    <line x1="500" y1="140" x2="580" y2="140" stroke="#60a5fa" stroke-width="2" marker-end="url(#arr)"/>
+
+    <rect x="580" y="110" width="160" height="60" rx="8" fill="#064e3b" stroke="#10b981"/><text x="660" y="135" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#6ee7b7">Regrava arquivo</text><text x="660" y="153" text-anchor="middle" font-family="Inter" font-size="10" fill="#a7f3d0">EDITMODE-BEGIN/END</text>
+
+    <line x1="660" y1="170" x2="660" y2="210" stroke="#10b981" stroke-width="2"/>
+
+    <rect x="40" y="210" width="680" height="100" rx="10" fill="#0b1220" stroke="#4b5563"/>
+    <text x="380" y="235" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#facc15">HTML resultante (persistido em disco)</text>
+    <text x="60" y="260" font-family="Inter" font-size="10" fill="#6ee7b7">const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{</text>
+    <text x="60" y="276" font-family="Inter" font-size="10" fill="#e9d5ff">  "primaryColor": "#2ea0ff",  <tspan fill="#facc15">&lt;-- mudança persistida</tspan></text>
+    <text x="60" y="292" font-family="Inter" font-size="10" fill="#e9d5ff">  "fontSize": 16,</text>
+    <text x="60" y="306" font-family="Inter" font-size="10" fill="#6ee7b7">}/*EDITMODE-END*/;</text>
+
+    <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#60a5fa"/></marker></defs>
+  </svg>
+</div>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">💾 Tweaks gravam no disco</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Esse é o ponto central. Não existe "preview reversível". Cada slide, cada clique no color picker, cada dropdown — <strong class="text-blue-400">regrava o arquivo HTML</strong>. O que você vê é literalmente o que sai no export.</p>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6"><h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Implicação prática</h3><p class="text-neutral-300 text-sm">Se você "testar" 20 cores em sequência — cada uma foi gravada. Não há "undo para antes do teste". Use Tweaks com intenção, não como playground.</p></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🧩 Protocolo EDITMODE-BEGIN/END</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O mecanismo técnico: Claude envolve os defaults num JSON válido dentro de comentários marcadores. Host acha esse bloco via regex, parseia, aplica merge e regrava.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6"><pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "primaryColor": "#D97757",
+  "fontSize": 16,
+  "dark": false,
+  "heroVariant": "A",
+  "density": "normal"
+}/*EDITMODE-END*/;</code></pre>
+<h4 class="font-semibold text-blue-400 mt-4 mb-2">Regras não-negociáveis</h4>
+<ul class="space-y-1 text-neutral-300 text-sm">
+<li>• <strong>JSON válido</strong> (aspas duplas nas chaves e strings)</li>
+<li>• <strong>Exatamente 1 bloco</strong> no HTML raiz</li>
+<li>• Deve estar dentro de <code class="text-blue-400 text-xs">&lt;script&gt;</code> inline</li>
+<li>• Não pode ter comentários JS dentro do bloco (quebra JSON)</li>
+</ul></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📡 postMessage protocol</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Quatro mensagens coordenam o ciclo:</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<table class="w-full text-sm">
+<thead><tr class="border-b border-blue-500/30"><th class="text-left pb-2 text-blue-300">Mensagem</th><th class="text-left pb-2 text-blue-300">Direção</th><th class="text-left pb-2 text-blue-300">Significado</th></tr></thead>
+<tbody class="text-neutral-300">
+<tr class="border-b border-dark-700"><td class="py-2"><code class="text-emerald-400 text-xs">__edit_mode_available</code></td><td class="py-2">mock → host</td><td class="py-2">"Eu suporto Tweaks, mostra o toggle"</td></tr>
+<tr class="border-b border-dark-700"><td class="py-2"><code class="text-emerald-400 text-xs">__activate_edit_mode</code></td><td class="py-2">host → mock</td><td class="py-2">Usuário ligou Tweaks — renderize o painel</td></tr>
+<tr class="border-b border-dark-700"><td class="py-2"><code class="text-emerald-400 text-xs">__deactivate_edit_mode</code></td><td class="py-2">host → mock</td><td class="py-2">Usuário desligou — esconda o painel</td></tr>
+<tr><td class="py-2"><code class="text-emerald-400 text-xs">__edit_mode_set_keys</code></td><td class="py-2">mock → host</td><td class="py-2">Usuário mudou valor X — persista</td></tr>
+</tbody></table>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6"><h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Ordem importa</h3><p class="text-neutral-300 text-sm"><strong>Registre o listener</strong> de <code class="text-red-400 text-xs">__activate_edit_mode</code> ANTES de mandar <code class="text-red-400 text-xs">__edit_mode_available</code>. Se inverter, host pode ativar antes de você estar pronto — toggle falha silenciosamente.</p></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🎨 Tweaks customizados no chat</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Os Tweaks default são genéricos (cor, fonte, densidade). Os customizados são onde mora produtividade real.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6"><h3 class="text-lg font-semibold text-blue-400 mb-3">Prompts que funcionam</h3>
+<pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>// Variantes de layout
+"Adicione Tweak para alternar entre hero-left
+ e hero-center."
+
+// Feature flag visual
+"Crie Tweak para mostrar/esconder seção de FAQ."
+
+// Numérico customizado
+"Adicione Tweak de contagem regressiva em dias
+ (default 7, slider 1-30)."
+
+// Texto editável persistente
+"Expose headline como Tweak de texto —
+ o usuário digita e persiste."
+
+// Toggle de tema além de dark/light
+"Adicione Tweak de 3 temas: Editorial,
+ Terminal-core e Cinematic-dark."</code></pre></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔬 Design do painel Tweaks</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Claude projeta a UI dos Tweaks. Regras do system prompt:</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6"><h4 class="font-bold text-emerald-400 mb-3">✓ Faça</h4><ul class="space-y-2 text-neutral-300 text-sm"><li>• Painel flutuante no canto inferior direito</li><li>• Título "Tweaks" (bate com toggle da toolbar)</li><li>• Pequena superfície — 3-6 controles max</li><li>• Controles inline se espacialmente possível</li></ul></div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6"><h4 class="font-bold text-red-400 mb-3">✗ Evite</h4><ul class="space-y-2 text-neutral-300 text-sm"><li>• Painel enorme cobrindo metade da tela</li><li>• Tweaks que podem quebrar o layout</li><li>• 15+ controles num design simples</li><li>• Labels longos — "primaryColor" &gt; "Cor principal do CTA"</li></ul></div>
+</div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">✅ Hide quando off: design finalizado</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Quando o toggle de Tweaks está desligado, o design deve parecer <strong>finalizado</strong>. Esconda COMPLETAMENTE os controles — não deixe resquícios de "editor" visíveis.</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6"><h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">💡</span> Por quê?</h3><p class="text-neutral-300 text-sm">Stakeholders que viram seu export (PDF / HTML) não podem ver controles. Claude faz isso automaticamente se você pediu Tweaks no chat — mas sempre confirme no modo Present antes de exportar.</p></div>
+</section>
+
+<section class="mb-12"><div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+  <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
+  <div class="space-y-4 mb-8">
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Tweaks gravam em disco</strong><span class="text-neutral-400"> — não é preview. Use com intenção.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">EDITMODE-BEGIN/END</strong><span class="text-neutral-400"> — 1 bloco JSON válido por HTML raiz.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">4 postMessage coordenam</strong><span class="text-neutral-400"> — listener ANTES de anunciar disponibilidade.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Customizados &gt; defaults</strong><span class="text-neutral-400"> — peça variantes, feature flags, texto persistente.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Painel discreto</strong><span class="text-neutral-400"> — flutuante, 3-6 controles max, título "Tweaks".</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Hide quando off</strong><span class="text-neutral-400"> — export não deve ter resquícios de editor.</span></div></div>
+  </div>
+  <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">2.6 — 🔀 Variações: pedir 5 em vez de 3</p></div>
+  <div class="flex flex-col sm:flex-row gap-4"><a href="modulo-2-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 2.4</a><a href="modulo-2-6.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Módulo 2.6 →</a></div>
+</div></section>
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Claude Design Course · INEMA.CLUB · 2026</p></div></footer>
+<script>const themeToggle=document.getElementById('theme-toggle'),d=document.getElementById('theme-toggle-dark-icon'),l=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){d.classList.remove('hidden');h.classList.remove('dark');}else{l.classList.remove('hidden');}themeToggle.addEventListener('click',()=>{d.classList.toggle('hidden');l.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light');});</script>
+</body></html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Design — Curso Zero ao Expert | INEMA.CLUB</title>
+  <meta name="description" content="Curso completo sobre Claude Design (claude.ai/design, Anthropic Labs). 5 trilhas, 35 módulos, do básico ao avançado.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    /* Light mode — base */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* Light mode — cores acento (landing usa todas) */
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-emerald-400 { color: #059669; }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37,99,235,0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-blue-400 { color: #2563eb; }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-purple-400 { color: #7c3aed; }
+
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217,119,6,0.12); }
+    html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .border-amber-500\/30 { border-color: rgba(217,119,6,0.25); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-amber-400 { color: #92400e; }
+
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .bg-teal-500\/20 { background-color: rgba(13,148,136,0.12); }
+    html:not(.dark) .bg-teal-500\/10 { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .border-teal-500\/30 { border-color: rgba(13,148,136,0.25); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-teal-400 { color: #0d9488; }
+
+    /* Remove gradientes no light mode */
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    /* Cores especiais light mode */
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    /* Navbar light mode */
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    /* Ilustração hero: blob animado (suave, sem ser "orb IA") */
+    @keyframes float-slow { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(2deg); } }
+    .float-slow { animation: float-slow 8s ease-in-out infinite; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-14">
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+          <span class="text-2xl">✨</span>
+          <span class="font-bold text-lg hidden sm:inline">Claude Design Course</span>
+        </a>
+        <span class="text-neutral-600">|</span>
+        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+      </div>
+      <div class="flex items-center space-x-1 sm:space-x-2">
+        <a href="#trilhas" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-300 hover:text-yellow-300">Trilhas</a>
+        <a href="https://github.com/inematds/claudedesign" target="_blank" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-300 hover:text-yellow-300">GitHub</a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="relative overflow-hidden bg-gradient-to-br from-dark-800 via-dark-900 to-dark-900 border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full border border-primary/40 mb-4">
+        ANTHROPIC LABS · LANÇADO EM 17/04/2026
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
+        Aprenda <span class="text-yellow-400">Claude Design</span><br/>
+        do zero ao <span class="text-emerald-400">expert</span>
+      </h1>
+      <p class="text-lg text-neutral-400 mb-6">
+        O primeiro curso completo em português sobre a ferramenta da Anthropic que substitui Figma, Gamma e Canva — em uma <strong class="text-neutral-300">única conversa</strong>.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="#trilhas" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-semibold transition-colors">Começar pelas trilhas →</a>
+        <a href="https://claude.ai/design" target="_blank" class="px-6 py-3 bg-dark-700 hover:bg-dark-600 text-neutral-200 rounded-lg font-semibold transition-colors">Abrir claude.ai/design ↗</a>
+      </div>
+      <div class="grid grid-cols-4 gap-4 mt-10 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-yellow-400">5</div>
+          <div class="text-xs text-neutral-400">Trilhas</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-yellow-400">~35</div>
+          <div class="text-xs text-neutral-400">Módulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-yellow-400">200+</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-yellow-400">0→Exp</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+      </div>
+    </div>
+    <div class="relative hidden md:block">
+      <!-- Ilustração SVG: janela claude.ai/design mockup -->
+      <svg viewBox="0 0 520 400" class="w-full float-slow" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bg1" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#1f2937"/><stop offset="1" stop-color="#111827"/>
+          </linearGradient>
+          <linearGradient id="accent1" x1="0" x2="1">
+            <stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#60a5fa"/>
+          </linearGradient>
+        </defs>
+        <rect x="20" y="20" width="480" height="360" rx="16" fill="url(#bg1)" stroke="#4b5563"/>
+        <circle cx="44" cy="44" r="6" fill="#f87171"/>
+        <circle cx="64" cy="44" r="6" fill="#fbbf24"/>
+        <circle cx="84" cy="44" r="6" fill="#34d399"/>
+        <rect x="40" y="72" width="220" height="280" rx="10" fill="#111827" stroke="#374151"/>
+        <rect x="54" y="92" width="180" height="14" rx="4" fill="#374151"/>
+        <rect x="54" y="118" width="150" height="10" rx="3" fill="#1f2937"/>
+        <rect x="54" y="138" width="190" height="10" rx="3" fill="#1f2937"/>
+        <rect x="54" y="170" width="90" height="28" rx="6" fill="#facc15"/>
+        <text x="99" y="189" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#111827">Prompt</text>
+        <rect x="54" y="210" width="180" height="120" rx="8" fill="#1f2937" stroke="#374151"/>
+        <circle cx="64" cy="220" r="2" fill="#34d399"/>
+        <rect x="72" y="218" width="80" height="6" rx="2" fill="#4b5563"/>
+        <rect x="54" y="240" width="180" height="8" rx="2" fill="#374151"/>
+        <rect x="54" y="256" width="140" height="8" rx="2" fill="#374151"/>
+        <rect x="54" y="272" width="160" height="8" rx="2" fill="#374151"/>
+        <rect x="54" y="300" width="80" height="24" rx="6" fill="#10b981"/>
+        <text x="94" y="316" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#fff">Gerar</text>
+
+        <!-- Canvas direito -->
+        <rect x="280" y="72" width="200" height="280" rx="10" fill="#0b1220" stroke="#374151"/>
+        <rect x="296" y="88" width="168" height="88" rx="6" fill="url(#accent1)" opacity="0.85"/>
+        <rect x="306" y="108" width="80" height="10" rx="2" fill="#0b1220" opacity="0.4"/>
+        <rect x="306" y="126" width="140" height="6" rx="2" fill="#0b1220" opacity="0.3"/>
+        <rect x="306" y="140" width="120" height="6" rx="2" fill="#0b1220" opacity="0.3"/>
+        <rect x="296" y="188" width="80" height="60" rx="6" fill="#1f2937" stroke="#4b5563"/>
+        <rect x="384" y="188" width="80" height="60" rx="6" fill="#1f2937" stroke="#4b5563"/>
+        <rect x="296" y="260" width="168" height="40" rx="6" fill="#1f2937" stroke="#4b5563"/>
+        <rect x="306" y="272" width="60" height="8" rx="2" fill="#374151"/>
+        <rect x="306" y="284" width="90" height="6" rx="2" fill="#4b5563"/>
+        <rect x="296" y="312" width="80" height="28" rx="6" fill="#7c3aed"/>
+        <text x="336" y="330" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#fff">Tweaks</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- O QUE É -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-b border-dark-600">
+  <h2 class="text-3xl font-bold mb-8 text-center">O que é <span class="text-yellow-400">Claude Design</span>?</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+      <div class="text-3xl mb-3">💬</div>
+      <h3 class="text-xl font-bold mb-2">Conversa, não desenho</h3>
+      <p class="text-neutral-400 text-sm">Em vez de arrastar retângulos no Figma, você descreve o que quer. O Claude Opus 4.7 gera o design — completo e iterável.</p>
+    </div>
+    <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+      <div class="text-3xl mb-3">🎨</div>
+      <h3 class="text-xl font-bold mb-2">Marca automática</h3>
+      <p class="text-neutral-400 text-sm">Puxa cores, tipografia e componentes do seu código / arquivos de design — tudo sai consistente desde o primeiro render.</p>
+    </div>
+    <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+      <div class="text-3xl mb-3">🚀</div>
+      <h3 class="text-xl font-bold mb-2">Handoff direto</h3>
+      <p class="text-neutral-400 text-sm">Do design ao código em uma conversa: exporta pra Canva, PDF, PPTX ou manda direto pro Claude Code implementar.</p>
+    </div>
+  </div>
+
+  <div class="mt-10 grid md:grid-cols-3 gap-6">
+    <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+      <div class="text-sm text-emerald-400 font-semibold mb-1">CANVA</div>
+      <p class="text-neutral-300 text-sm">"Integração oficial" — Melanie Perkins confirmou no anúncio.</p>
+    </div>
+    <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+      <div class="text-sm text-blue-400 font-semibold mb-1">BRILLIANT</div>
+      <p class="text-neutral-300 text-sm">Páginas complexas que exigiam <strong>20+ prompts</strong> agora saem em <strong>2</strong>.</p>
+    </div>
+    <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+      <div class="text-sm text-purple-400 font-semibold mb-1">DATADOG</div>
+      <p class="text-neutral-300 text-sm">Ciclo de <strong>uma semana</strong> reduzido a <strong>uma conversa</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRILHAS -->
+<section id="trilhas" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="text-center mb-12">
+    <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full border border-primary/40 mb-3">5 TRILHAS · ~35 MÓDULOS</span>
+    <h2 class="text-3xl font-bold mb-4">Sua jornada do <span class="text-emerald-400">zero</span> ao <span class="text-purple-400">expert</span></h2>
+    <p class="text-neutral-400 max-w-2xl mx-auto">Cada trilha tem ~7 módulos com tópicos expansíveis, exemplos reais, ilustrações e exercícios práticos. Vá na sua velocidade.</p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <!-- T1 -->
+    <a href="curso/trilha1/index.html" class="group block bg-dark-800 rounded-xl border border-emerald-500/30 p-6 hover:bg-emerald-500/10 transition-colors">
+      <div class="flex items-start justify-between mb-3">
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full">TRILHA 1 · EMERALD</span>
+        <span class="text-xs text-neutral-500">Iniciante</span>
+      </div>
+      <h3 class="text-2xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">🌱 Fundamentos</h3>
+      <p class="text-neutral-400 text-sm mb-4">O que é Claude Design, como funciona, seu primeiro design em 5 minutos. Interface, inputs, o ciclo básico.</p>
+      <div class="text-xs text-emerald-400 font-semibold">7 módulos →</div>
+    </a>
+
+    <!-- T2 -->
+    <a href="curso/trilha2/index.html" class="group block bg-dark-800 rounded-xl border border-blue-500/30 p-6 hover:bg-blue-500/10 transition-colors">
+      <div class="flex items-start justify-between mb-3">
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold rounded-full">TRILHA 2 · BLUE</span>
+        <span class="text-xs text-neutral-500">Intermediário</span>
+      </div>
+      <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors">🔵 Intermediário</h3>
+      <p class="text-neutral-400 text-sm mb-4">Design systems, context stacking, iteração no canvas, tweaks, variações. Como manter marca consistente.</p>
+      <div class="text-xs text-blue-400 font-semibold">7 módulos →</div>
+    </a>
+
+    <!-- T3 -->
+    <a href="curso/trilha3/index.html" class="group block bg-dark-800 rounded-xl border border-purple-500/30 p-6 hover:bg-purple-500/10 transition-colors">
+      <div class="flex items-start justify-between mb-3">
+        <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-full">TRILHA 3 · PURPLE</span>
+        <span class="text-xs text-neutral-500">Avançado</span>
+      </div>
+      <h3 class="text-2xl font-bold mb-2 group-hover:text-purple-400 transition-colors">🟣 Avançado & Expert</h3>
+      <p class="text-neutral-400 text-sm mb-4">System prompt vazado, starter components, verificador silencioso, edge cases, Haiku-live, deck_stage.js.</p>
+      <div class="text-xs text-purple-400 font-semibold">7 módulos →</div>
+    </a>
+
+    <!-- T4 -->
+    <a href="curso/trilha4/index.html" class="group block bg-dark-800 rounded-xl border border-amber-500/30 p-6 hover:bg-amber-500/10 transition-colors">
+      <div class="flex items-start justify-between mb-3">
+        <span class="px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-bold rounded-full">TRILHA 4 · AMBER</span>
+        <span class="text-xs text-neutral-500">Galeria</span>
+      </div>
+      <h3 class="text-2xl font-bold mb-2 group-hover:text-amber-400 transition-colors">🟡 Galeria claude.ai/design</h3>
+      <p class="text-neutral-400 text-sm mb-4">Telas reais da ferramenta. Cases Canva, Brilliant, Datadog. Dezenas de exemplos da internet comentados.</p>
+      <div class="text-xs text-amber-400 font-semibold">7 módulos →</div>
+    </a>
+
+    <!-- T5 -->
+    <a href="curso/trilha5/index.html" class="group block bg-dark-800 rounded-xl border border-teal-500/30 p-6 hover:bg-teal-500/10 transition-colors md:col-span-2">
+      <div class="flex items-start justify-between mb-3">
+        <span class="px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-bold rounded-full">TRILHA 5 · TEAL</span>
+        <span class="text-xs text-neutral-500">Avançado · Automação</span>
+      </div>
+      <h3 class="text-2xl font-bold mb-2 group-hover:text-teal-400 transition-colors">🟢 Prompts & Automações</h3>
+      <p class="text-neutral-400 text-sm mb-4">Prompts-campeões prontos para colar. Handoff design → Claude Code. Workflows design-first. Skill design-designer. Automação com MCP.</p>
+      <div class="text-xs text-teal-400 font-semibold">7 módulos →</div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-dark-600 py-10 mt-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+    <p class="mb-2">Claude Design Course · INEMA.CLUB · 2026</p>
+    <p>Conteúdo didático open-source em <a href="https://github.com/inematds/claudedesign" target="_blank" class="text-sky-400 hover:text-sky-300">github.com/inematds/claudedesign</a></p>
+  </div>
+</footer>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+  const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+  const html = document.documentElement;
+  if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+    themeToggleDarkIcon.classList.remove('hidden');
+    html.classList.remove('dark');
+  } else {
+    themeToggleLightIcon.classList.remove('hidden');
+  }
+  themeToggle.addEventListener('click', () => {
+    themeToggleDarkIcon.classList.toggle('hidden');
+    themeToggleLightIcon.classList.toggle('hidden');
+    html.classList.toggle('dark');
+    localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+  });
+</script>
+</body>
+</html>

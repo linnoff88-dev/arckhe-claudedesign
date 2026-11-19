@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.3 · Verificador + done flow + mentioned-element | T3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; } .dark body { background-color: #111827; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; } html:not(.dark) .bg-dark-800 { background-color: #f9fafb; } html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; } html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; } html:not(.dark) .text-neutral-300 { color: #4b5563; } html:not(.dark) .text-neutral-400 { color: #6b7280; } html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; } html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; } html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); } html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); } html:not(.dark) .bg-purple-900\/20, html:not(.dark) .bg-purple-900\/40 { background-color: rgba(124,58,237,0.08); } html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .text-red-400 { color: #b91c1c; } html:not(.dark) .bg-red-900\/20 { background-color: rgba(185,28,28,0.06); } html:not(.dark) .border-red-500\/30 { border-color: rgba(185,28,28,0.25); }
+    html:not(.dark) .text-emerald-400 { color: #059669; } html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.08); } html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; } html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); } html:not(.dark) .border-primary\/30, html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; } html:not(.dark) .text-yellow-400 { color: #a16207; } html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; } html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+    blockquote { border-left: 3px solid #c084fc; padding-left: 1rem; font-style: italic; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
+  <div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">✨</span><span class="font-bold text-lg hidden sm:inline">Claude Design Course</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div>
+  <div class="flex items-center space-x-1 sm:space-x-2">
+    <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+    <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Intermediário</span></a>
+    <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avançado</span></a>
+    <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Galeria</span></a>
+    <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Prompts</span></a>
+    <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button>
+  </div>
+</div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Módulo 3.3</span></div></nav>
+
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.3 · VERIFICAÇÃO</span>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔒 done() flow + fork_verifier_agent + mentioned-element blocks</h1>
+    <p class="text-lg text-neutral-400 max-w-3xl">Como Claude Design realmente entrega + valida output: <code class="text-purple-400">done()</code>, fix de erros de console, <code class="text-purple-400">fork_verifier_agent</code> silencioso vs direcionado, <code class="text-purple-400">show_to_user</code>, e como Claude sabe qual elemento você comentou (<code class="text-purple-400">mentioned-element</code>).</p>
+    <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Expert</div><div class="text-xs text-neutral-400">Nível</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Tools</div><div class="text-xs text-neutral-400">Tipo</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<!-- TÓPICO 1: done() flow -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">✅ done(path) — entrega final + fix de console errors</h2></div>
+
+  <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Citação literal</h3>
+    <blockquote class="text-neutral-300 text-sm mb-2"><em>"Quando terminar, chame done com o caminho do arquivo HTML. Isso abre o arquivo na barra de abas do usuário e retorna quaisquer erros de console. Se houver erros, corrija e chame done novamente — o usuário deve sempre terminar em uma visualização que não quebre."</em></blockquote>
+  </div>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Fluxo completo</h3>
+    <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+      <li>Claude termina design</li>
+      <li>Chama <code class="text-purple-400 text-xs">done("Landing Page.html")</code></li>
+      <li>Sistema abre preview na aba do usuário + retorna erros de console (se houver)</li>
+      <li><strong>Se erros:</strong> Claude lê → corrige → <code class="text-purple-400 text-xs">done()</code> de novo → repete até clean</li>
+      <li><strong>Se clean:</strong> Claude chama <code class="text-purple-400 text-xs">fork_verifier_agent()</code> em background</li>
+      <li>Encerra turno (não espera verificador)</li>
+    </ol>
+  </div>
+
+  <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-emerald-400 mb-3">show_to_user — alternativa para previews intermediárias</h3>
+    <blockquote class="text-neutral-300 text-sm mb-3"><em>"IMPORTANTE: Ler um arquivo NÃO o mostra ao usuário. Para prévias durante a tarefa ou arquivos que não sejam HTML, use show_to_user — funciona para qualquer tipo de arquivo (HTML, imagens, texto etc.) e abre o arquivo no painel de prévia do usuário. Para a entrega final de HTML ao fim do turno, use done — ele faz o mesmo e ainda retorna erros de console."</em></blockquote>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+      <div class="bg-dark-800 rounded p-4">
+        <div class="text-xs text-emerald-400 font-bold mb-2">show_to_user(path)</div>
+        <ul class="space-y-1 text-neutral-300 text-xs">
+          <li>• Preview intermediário</li>
+          <li>• Qualquer tipo de arquivo (HTML, PNG, JPG, .md, .json)</li>
+          <li>• NÃO retorna erros de console</li>
+          <li>• Use durante iteração</li>
+        </ul>
+      </div>
+      <div class="bg-dark-800 rounded p-4">
+        <div class="text-xs text-emerald-400 font-bold mb-2">done(path)</div>
+        <ul class="space-y-1 text-neutral-300 text-xs">
+          <li>• Entrega final do turno</li>
+          <li>• Apenas HTML</li>
+          <li>• Retorna erros de console (Claude precisa fix)</li>
+          <li>• Trigger automático para fork_verifier_agent</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TÓPICO 2: fork_verifier_agent silencioso -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🔒 fork_verifier_agent — modo silencioso (após done clean)</h2></div>
+
+  <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Citação literal</h3>
+    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Quando done informar que está limpo, chame fork_verifier_agent. Isso cria um subagente em segundo plano com seu próprio iframe para fazer verificações completas (screenshots, layout, sondagem JS). Em caso de sucesso, ele fica silencioso — só interrompe se algo estiver errado. Não espere por ele; encerre seu turno."</em></blockquote>
+  </div>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">O que o subagente faz no iframe próprio</h3>
+    <ul class="space-y-2 text-neutral-300 text-sm">
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Screenshots</strong> em múltiplos viewports (desktop 1440, tablet 768, mobile 375)</span></li>
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Layout probe</strong> — overflow horizontal, elementos sobrepostos, alignment quebrado, contraste de cor</span></li>
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Sondagem JS</strong> — console errors, promises rejeitadas, event handlers quebrados</span></li>
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>data-om-validate</strong> — atributos colocados pelo deck_stage para sinalizar pontos de validação</span></li>
+    </ul>
+  </div>
+
+  <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-red-400 mb-3">Princípio: contexto isolado = "olhos frescos"</h3>
+    <p class="text-neutral-300 text-sm">Mesmo conceito do Claude Code: <strong>nunca deixar o modelo revisar o próprio trabalho no mesmo contexto</strong>. O subagente nasce com contexto vazio, vê o output como se fosse a primeira vez. Por isso pega bugs que o Claude principal não veria.</p>
+  </div>
+</section>
+
+<!-- TÓPICO 3: Verificação direcionada -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🎯 fork_verifier_agent({task}) — verificação direcionada</h2></div>
+
+  <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Citação literal</h3>
+    <blockquote class="text-neutral-300 text-sm mb-2"><em>"Se o usuário pedir que você verifique algo específico no meio da tarefa ('tire screenshot e confira o espaçamento'), chame fork_verifier_agent({task: '...'}). O verificador vai focar nisso e retornar independentemente. Você não precisa de done para verificações direcionadas — só para a entrega final ao fim do turno."</em></blockquote>
+  </div>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Exemplos de tasks direcionadas</h3>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>// Layout/spacing
+fork_verifier_agent({
+  task: "Check spacing consistency between the 3 cards
+         in mobile viewport (375px). They should use 16px gap."
+})
+
+// Acessibilidade
+fork_verifier_agent({
+  task: "Verify color contrast WCAG AA on all text elements,
+         especially the muted neutral-400 on bg-dark-800."
+})
+
+// Funcionalidade
+fork_verifier_agent({
+  task: "Click the CTA button and confirm modal opens.
+         Then check if Esc closes it."
+})
+
+// Visual fidelity
+fork_verifier_agent({
+  task: "Take screenshots in 1440 / 768 / 375 viewports,
+         compare hero alignment across all three."
+})</code></pre>
+    <p class="text-neutral-400 text-xs mt-3">Verificador retorna independentemente. Não polui contexto principal.</p>
+  </div>
+</section>
+
+<!-- TÓPICO 4: NÃO faça self-check -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🚫 NÃO faça self-check (regra explícita)</h2></div>
+
+  <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-red-400 mb-3">Citação literal</h3>
+    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Não faça sua própria verificação antes de chamar done; não capture screenshots proativamente para revisar seu trabalho; conte com o verificador para detectar problemas sem poluir seu contexto."</em></blockquote>
+  </div>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Por que essa regra existe</h3>
+    <ul class="space-y-2 text-neutral-300 text-sm">
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Self-check polui contexto com screenshots e probe results que NÃO importam pro usuário</span></li>
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Modelo no mesmo contexto sofre de viés cognitivo — vê o que <em>quis</em> fazer, não o que <em>fez</em></span></li>
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Role separation clean: Claude principal CRIA. Subagente CHECA.</span></li>
+    </ul>
+  </div>
+
+  <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-emerald-400 mb-3">Quando self-check é OK</h3>
+    <p class="text-neutral-300 text-sm">Quando você pede explicitamente. <em>"Take a screenshot of the current state and tell me what you see"</em> — Claude faz, mas conta como request seu, não auto-iniciativa.</p>
+  </div>
+</section>
+
+<!-- TÓPICO 5: mentioned-element blocks -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🏷️ mentioned-element blocks — como Claude sabe qual elemento</h2></div>
+
+  <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Citação literal</h3>
+    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Quando o usuário comenta, edita inline ou arrasta um elemento na prévia, o anexo inclui um bloco &lt;mentioned-element&gt; — algumas linhas curtas descrevendo o nó vivo do DOM que ele tocou. Use isso para inferir qual elemento do código-fonte editar."</em></blockquote>
+  </div>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Anatomia do bloco</h3>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>&lt;mentioned-element&gt;
+react: HeroSection &gt; Headline &gt; Emphasis
+dom: body &gt; main &gt; section[data-screen-label="01 Hero"] &gt; h1 &gt; span[data-cc-id="cc-7"]
+id: cc-7
+&lt;/mentioned-element&gt;</code></pre>
+    <ul class="space-y-2 text-neutral-300 text-sm mt-4">
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><code class="text-purple-400 text-xs mr-2">react:</code><span>cadeia de componentes React do mais externo para o mais interno (vem do dev mode fibers)</span></li>
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><code class="text-purple-400 text-xs mr-2">dom:</code><span>ancestralidade DOM completa, com data-attrs visíveis</span></li>
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><code class="text-purple-400 text-xs mr-2">id:</code><span>identificador transitório no nó vivo</span></li>
+    </ul>
+  </div>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Os 2 atributos transitórios (importantes)</h3>
+    <table class="w-full text-sm">
+      <thead><tr class="border-b border-purple-500/30"><th class="text-left pb-2 text-purple-300">Atributo</th><th class="text-left pb-2 text-purple-300">Quando aparece</th><th class="text-left pb-2 text-purple-300">Forma</th></tr></thead>
+      <tbody class="text-neutral-300">
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">data-cc-id</code></td><td class="py-2">Modo Comments / Knobs / Text edit</td><td class="py-2"><code class="text-xs">cc-N</code> (N = número sequencial)</td></tr>
+        <tr><td class="py-2"><code class="text-purple-400 text-xs">data-dm-ref</code></td><td class="py-2">Modo Design</td><td class="py-2"><code class="text-xs">N</code> (apenas número)</td></tr>
+      </tbody>
+    </table>
+    <p class="text-neutral-400 text-xs mt-3">⚠️ <em>"Isso NÃO está no seu código-fonte — é um identificador em tempo de execução."</em> Claude não pode usar <code class="text-purple-400 text-xs">data-cc-id</code> como seletor permanente — usa para localizar e depois edita pela posição/identificador real do código.</p>
+  </div>
+
+  <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-emerald-400 mb-3">eval_js_user_view — desambiguação cirúrgica</h3>
+    <blockquote class="text-neutral-300 text-sm mb-2"><em>"Quando o bloco sozinho não for suficiente para localizar a origem no código, use eval_js_user_view na prévia do usuário para desambiguar antes de editar. Chutar e editar é pior do que uma sondagem rápida."</em></blockquote>
+    <p class="text-neutral-400 text-xs mt-2">Tool que executa JS arbitrário no preview do usuário. Útil quando o bloco mentioned-element é genérico demais. Você pode pedir: <em>"Use eval_js_user_view to inspect the parent of cc-7 before editing"</em>.</p>
+  </div>
+</section>
+
+<!-- TÓPICO 6: Workflow integrado -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔄 Workflow integrado: criar → comentar → editar → done → verificar</h2></div>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Ciclo completo</h3>
+    <ol class="space-y-3 text-neutral-300 text-sm list-decimal list-inside">
+      <li><strong>Claude cria</strong> — write_file com asset, pasta organizada</li>
+      <li><strong>show_to_user(path)</strong> — preview intermediário sem fechar tarefa</li>
+      <li><strong>Você comenta</strong> no canvas → mentioned-element block enviado</li>
+      <li><strong>Claude lê o bloco</strong> (react+dom+id) → localiza fonte</li>
+      <li><strong>Se ambíguo</strong> → eval_js_user_view para desambiguar</li>
+      <li><strong>Claude edita</strong> (não o data-cc-id, mas o código-fonte real)</li>
+      <li><strong>show_to_user</strong> de novo (intermediário)</li>
+      <li><strong>Repete</strong> 3-7 até estar bom</li>
+      <li><strong>done(path)</strong> ao final</li>
+      <li><strong>Console clean</strong>? → fork_verifier_agent silencioso</li>
+      <li><strong>Console errors</strong>? → fix → done() → repete</li>
+      <li><strong>Resumir EXTREMAMENTE BREVE</strong> — caveats e próximos passos só</li>
+    </ol>
+  </div>
+
+  <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Hack: forçar verificação cirúrgica antes de done</h3>
+    <p class="text-neutral-300 text-sm">No meio da iteração, peça <em>"check accessibility before we finalize"</em>. Claude invoca <code class="text-primary text-xs">fork_verifier_agent({task: "WCAG AA audit"})</code>, recebe report estruturado, e aplica correções ANTES do done final. Resultado: produção-ready.</p>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="mb-12">
+  <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+    <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
+    <div class="space-y-4 mb-8">
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">done(path)</strong><span class="text-neutral-400"> — entrega final, retorna console errors. Fix → done de novo.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">show_to_user vs done</strong><span class="text-neutral-400"> — preview intermediário (qualquer formato) vs entrega final (HTML + console errors).</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">fork_verifier_agent silencioso</strong><span class="text-neutral-400"> — após done clean. Iframe próprio, screenshots, layout, JS, data-om-validate.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">fork_verifier_agent({task})</strong><span class="text-neutral-400"> — verificação direcionada mid-task. Não precisa done.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">NUNCA self-check</strong><span class="text-neutral-400"> — regra do system prompt. Confie no verificador.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">mentioned-element blocks</strong><span class="text-neutral-400"> — react: + dom: + id: localizam fonte. data-cc-id (Comments) vs data-dm-ref (Design).</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">eval_js_user_view</strong><span class="text-neutral-400"> — desambigua quando o bloco é vago. Sondagem &gt; chute.</span></div></div>
+    </div>
+    <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">3.4 — ⚡ window.claude.complete (Haiku 4.5 + 1024 tokens) + snip + context management</p></div>
+    <div class="flex flex-col sm:flex-row gap-4"><a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 3.2</a><a href="modulo-3-4.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Módulo 3.4 →</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Claude Design Course · INEMA.CLUB · 2026</p></div></footer>
+<script>const themeToggle=document.getElementById('theme-toggle'),d=document.getElementById('theme-toggle-dark-icon'),l=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){d.classList.remove('hidden');h.classList.remove('dark');}else{l.classList.remove('hidden');}themeToggle.addEventListener('click',()=>{d.classList.toggle('hidden');l.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light');});</script>
+</body></html>

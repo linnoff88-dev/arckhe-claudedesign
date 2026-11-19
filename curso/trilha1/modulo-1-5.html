@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.5 · Ciclo gerar→refinar→exportar | T1 Fundamentos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .bg-emerald-900\/20, html:not(.dark) .bg-emerald-900\/30, html:not(.dark) .bg-emerald-900\/40 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .text-red-400 { color: #b91c1c; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(185,28,28,0.06); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(185,28,28,0.25); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30, html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
+    <div class="flex items-center space-x-4">
+      <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">✨</span><span class="font-bold text-lg hidden sm:inline">Claude Design Course</span></a>
+      <span class="text-neutral-600">|</span>
+      <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+    </div>
+    <div class="flex items-center space-x-1 sm:space-x-2">
+      <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+      <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Intermediário</span></a>
+      <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avançado</span></a>
+      <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Galeria</span></a>
+      <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Prompts</span></a>
+      <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+      </button>
+    </div>
+  </div></div>
+</nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span><a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span><span class="text-emerald-400">Módulo 1.5</span></div></nav>
+
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.5</span>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔄 O ciclo: gerar → refinar → exportar</h1>
+    <p class="text-lg text-neutral-400 max-w-3xl">Por que iterar é mais rápido que tentar acertar de primeira. O loop mental correto — e como saber quando parar.</p>
+    <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Mental</div><div class="text-xs text-neutral-400">Tipo</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<!-- SVG do loop -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-10">
+  <h3 class="text-lg font-semibold text-neutral-200 mb-4 flex items-center"><span class="mr-2">♾️</span> O loop que substitui "prompt perfeito"</h3>
+  <svg viewBox="0 0 760 320" class="w-full" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="200" cy="160" r="70" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    <text x="200" y="155" text-anchor="middle" font-family="Inter" font-size="14" font-weight="700" fill="#6ee7b7">GERAR</text>
+    <text x="200" y="175" text-anchor="middle" font-family="Inter" font-size="10" fill="#a7f3d0">prompt simples</text>
+
+    <circle cx="440" cy="160" r="70" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2"/>
+    <text x="440" y="155" text-anchor="middle" font-family="Inter" font-size="14" font-weight="700" fill="#bfdbfe">REFINAR</text>
+    <text x="440" y="175" text-anchor="middle" font-family="Inter" font-size="10" fill="#bfdbfe">Tweaks + comments</text>
+
+    <circle cx="680" cy="160" r="70" fill="#facc15" stroke="#fde68a" stroke-width="2"/>
+    <text x="680" y="155" text-anchor="middle" font-family="Inter" font-size="14" font-weight="700" fill="#111827">EXPORTAR</text>
+    <text x="680" y="175" text-anchor="middle" font-family="Inter" font-size="10" fill="#111827">quando parar de melhorar</text>
+
+    <path d="M 270 160 Q 320 120 370 160" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+    <path d="M 510 160 Q 560 120 610 160" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+    <!-- Loop back arrow -->
+    <path d="M 440 230 Q 440 280 200 280 Q 160 280 160 240" stroke="#c084fc" stroke-width="2" stroke-dasharray="4,4" fill="none" marker-end="url(#arr)"/>
+    <text x="320" y="305" text-anchor="middle" font-family="Inter" font-size="10" fill="#c084fc" font-style="italic">se precisar mudar estrutura → re-gerar</text>
+
+    <defs>
+      <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+      </marker>
+    </defs>
+
+    <text x="380" y="40" text-anchor="middle" font-family="Inter" font-size="12" fill="#facc15" font-weight="700">80% do tempo fica NO refinar</text>
+    <text x="380" y="58" text-anchor="middle" font-family="Inter" font-size="10" fill="#9ca3af">gerar é rápido · refinar é onde mora a qualidade</text>
+  </svg>
+</div>
+
+<!-- TÓPICO 1 -->
+<section id="topico-1" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🔁 O loop: motor mental</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Três fases, uma só máquina: <strong class="text-emerald-400">Gerar → Refinar → Exportar</strong>. O refinar volta para o gerar se você descobrir que precisa mudar estrutura. Nunca é linear. Aceite isso e você para de travar.</p>
+  <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">🎯</span> A regra dos 80%</h3>
+    <p class="text-neutral-300 text-sm">Dos seus 100% de tempo na ferramenta, ~15% vai para o <strong>gerar</strong> inicial, ~80% para <strong>refinar</strong>, ~5% para <strong>exportar</strong>. Se você está gastando mais de 30% tentando ajustar o prompt perfeito, está fazendo errado.</p>
+  </div>
+</section>
+
+<!-- TÓPICO 2 -->
+<section id="topico-2" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🎯 Prompt ruim + refinamento = win</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">O hack contra-intuitivo mais importante: um prompt <em>simples</em> + 10 ajustes pequenos frequentemente BATE um prompt de 500 palavras "perfeito" de primeira.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+      <h4 class="font-bold text-red-400 mb-3">✗ Overthinking</h4>
+      <p class="text-neutral-300 text-sm mb-3">Você gasta 15 min escrevendo o prompt "definitivo", com detalhes de cor, tipografia, spacing, copy. Quando gera, está quase certo — mas não exatamente.</p>
+      <p class="text-neutral-400 text-xs">Custo: 15 min de planejamento + 5 min de geração + retrabalho porque faltou um detalhe.</p>
+    </div>
+    <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+      <h4 class="font-bold text-emerald-400 mb-3">✓ Seed + iteração</h4>
+      <p class="text-neutral-300 text-sm mb-3">Você escreve "landing pra [produto] pra [audiência], feeling [X]". 30s. Claude gera. Você ajusta via Tweaks e comments.</p>
+      <p class="text-neutral-400 text-xs">Custo: 30s de prompt + 2 min de geração + 5 min de refinamento. Total: <strong class="text-emerald-400">menos da metade</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TÓPICO 3 -->
+<section id="topico-3" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">💬 Comentários específicos &gt; reclamações vagas</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">"O design está estranho" é a pior coisa que você pode dizer. Claude não sabe o que fazer. Seja cirúrgico.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+      <h4 class="font-bold text-red-400 mb-3">✗ Vago</h4>
+      <ul class="space-y-2 text-neutral-300 text-sm">
+        <li>"não gostei"</li>
+        <li>"pode ser mais moderno?"</li>
+        <li>"tá genérico"</li>
+        <li>"melhor o hero"</li>
+      </ul>
+    </div>
+    <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+      <h4 class="font-bold text-emerald-400 mb-3">✓ Cirúrgico (comment no elemento + texto)</h4>
+      <ul class="space-y-2 text-neutral-300 text-sm">
+        <li>[no botão CTA] "contraste fraco, deixe o fundo em #0ea5e9"</li>
+        <li>[no hero] "headline com no máximo 8 palavras, estilo Linear"</li>
+        <li>[nas 3 cards] "alinhe à esquerda e reduza padding pela metade"</li>
+        <li>[no footer] "remova, vou pôr manualmente"</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TÓPICO 4 -->
+<section id="topico-4" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🎛️ Tweaks &gt; chat para micro-ajustes</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Sempre que a mudança é <em>quantitativa</em> (cor X, tamanho Y, densidade Z), vá pro painel Tweaks. Chat só para mudanças <em>estruturais</em>.</p>
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h4 class="font-semibold text-emerald-400 mb-4">Árvore de decisão</h4>
+    <table class="w-full text-sm">
+      <thead><tr class="border-b border-dark-600"><th class="text-left pb-2 text-neutral-400">Tipo de mudança</th><th class="text-left pb-2 text-neutral-400">Onde fazer</th></tr></thead>
+      <tbody class="text-neutral-300">
+        <tr class="border-b border-dark-700"><td class="py-2">Cor, tamanho, densidade</td><td class="py-2"><span class="text-emerald-400">Tweaks</span></td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2">Trocar fonte de um conjunto conhecido</td><td class="py-2"><span class="text-emerald-400">Tweaks</span></td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2">Reescrever copy de um elemento</td><td class="py-2"><span class="text-blue-400">Inline edit</span> (duplo-clique)</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2">Mover um elemento específico</td><td class="py-2"><span class="text-purple-400">Comment</span></td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2">Adicionar seção nova</td><td class="py-2"><span class="text-amber-400">Chat</span></td></tr>
+        <tr><td class="py-2">Mudar estética geral</td><td class="py-2"><span class="text-red-400">Chat + re-gerar</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TÓPICO 5 -->
+<section id="topico-5" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">✏️ Inline edit: o atalho pra copy</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Duplo-clique em qualquer texto no canvas — Claude Design entra em modo de edição de texto direto. Você edita e salva. Sem passar pelo chat, sem consumir tokens.</p>
+  <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">⚡</span> Velocidade relativa</h3>
+    <ul class="space-y-2 text-neutral-300 text-sm">
+      <li class="flex items-start space-x-2"><span class="text-primary">•</span><span><strong>Inline edit:</strong> ~3 segundos por mudança</span></li>
+      <li class="flex items-start space-x-2"><span class="text-primary">•</span><span><strong>Comment com texto novo:</strong> ~15 segundos (mais iteração do Claude)</span></li>
+      <li class="flex items-start space-x-2"><span class="text-primary">•</span><span><strong>Chat:</strong> ~30-60 segundos (Claude pensa, gera, atualiza)</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- TÓPICO 6 -->
+<section id="topico-6" class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🚪 Quando parar: a curva de retornos</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">Overfitting visual é real. Se você iterou 15 vezes e está empatando ou piorando — pare. Exporte.</p>
+
+  <!-- SVG Diminishing returns -->
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-neutral-200 mb-4 flex items-center"><span class="mr-2">📉</span> Curva de retornos decrescentes</h3>
+    <svg viewBox="0 0 760 260" class="w-full" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="220" x2="720" y2="220" stroke="#4b5563"/>
+      <line x1="60" y1="220" x2="60" y2="30" stroke="#4b5563"/>
+      <text x="400" y="250" text-anchor="middle" font-family="Inter" font-size="11" fill="#9ca3af">Iterações</text>
+      <text x="30" y="125" text-anchor="middle" font-family="Inter" font-size="11" fill="#9ca3af" transform="rotate(-90 30 125)">Qualidade</text>
+      <path d="M 60 220 Q 180 60 400 50 Q 600 45 720 60" stroke="#10b981" stroke-width="3" fill="none"/>
+      <line x1="240" y1="220" x2="240" y2="90" stroke="#facc15" stroke-dasharray="4,4"/>
+      <text x="240" y="85" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#facc15">Sweet spot ≈ iteração 5-7</text>
+      <circle cx="240" cy="90" r="6" fill="#facc15"/>
+      <line x1="500" y1="220" x2="500" y2="50" stroke="#f87171" stroke-dasharray="4,4"/>
+      <text x="500" y="45" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#f87171">Overfitting começa</text>
+      <circle cx="500" cy="50" r="6" fill="#f87171"/>
+      <text x="400" y="200" text-anchor="middle" font-family="Inter" font-size="10" fill="#6b7280" font-style="italic">Ciclos 1-5: ganho enorme · 6-10: ganho médio · 10+: zigue-zague</text>
+    </svg>
+  </div>
+
+  <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🛑</span> Sinais de que é hora de parar</h3>
+    <ul class="space-y-2 text-neutral-300 text-sm">
+      <li class="flex items-start space-x-2"><span class="text-red-400">×</span><span>Os últimos 3 ajustes empataram ou pioraram</span></li>
+      <li class="flex items-start space-x-2"><span class="text-red-400">×</span><span>Você está alternando entre duas versões sem preferência clara</span></li>
+      <li class="flex items-start space-x-2"><span class="text-red-400">×</span><span>Mostrou para alguém e a pessoa reagiu positivamente — é sinal de sweet spot</span></li>
+      <li class="flex items-start space-x-2"><span class="text-red-400">×</span><span>Passou 30+ minutos ininterruptos — perdeu perspectiva, olhe amanhã</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="mb-12">
+  <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+    <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
+    <div class="space-y-4 mb-8">
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Loop não-linear</strong><span class="text-neutral-400"> — gerar → refinar → exportar, com loops internos. 80% do tempo no refinar.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Seed simples &gt; prompt perfeito</strong><span class="text-neutral-400"> — 30s de prompt + iteração bate 15 min de planejamento.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Comentários cirúrgicos</strong><span class="text-neutral-400"> — marque elemento + texto específico. Vago = travado.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Árvore de decisão</strong><span class="text-neutral-400"> — Tweaks pra quantitativo, inline edit pra copy, chat pra estrutura.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Sweet spot ≈ 5-7 iterações</strong><span class="text-neutral-400"> — depois disso, retornos decrescentes e risco de overfitting.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Sinais de parar</strong><span class="text-neutral-400"> — 3 ajustes empatados, alternância sem preferência, validação externa positiva.</span></div></div>
+    </div>
+    <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+      <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+      <p class="text-neutral-300">1.6 — 🧭 Tipos de artefato (slide, landing, protótipo, animação)</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="modulo-1-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 1.4</a>
+      <a href="modulo-1-6.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Módulo 1.6 →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Claude Design Course · INEMA.CLUB · 2026</p></div></footer>
+
+<script>
+  const themeToggle=document.getElementById('theme-toggle'),d=document.getElementById('theme-toggle-dark-icon'),l=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+  if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){d.classList.remove('hidden');h.classList.remove('dark');}else{l.classList.remove('hidden');}
+  themeToggle.addEventListener('click',()=>{d.classList.toggle('hidden');l.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light');});
+</script>
+</body>
+</html>

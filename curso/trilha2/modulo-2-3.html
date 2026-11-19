@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Módulo 2.3 · questions_v2 | T2</title>
+<script src="https://cdn.tailwindcss.com"></script><script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body { font-family: 'Inter', sans-serif; } .dark body { background-color: #111827; } html:not(.dark) body { background-color: #f8fafc; } html:not(.dark) .bg-dark-900 { background-color: #ffffff; } html:not(.dark) .bg-dark-800 { background-color: #f9fafb; } html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; } html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; } html:not(.dark) .text-neutral-100 { color: #111827; } html:not(.dark) .text-neutral-300 { color: #4b5563; } html:not(.dark) .text-neutral-400 { color: #6b7280; } html:not(.dark) .text-neutral-500 { color: #9ca3af; } html:not(.dark) .border-dark-600 { border-color: #d1d5db; } html:not(.dark) .border-dark-700 { border-color: #e5e7eb; } html:not(.dark) .text-blue-400 { color: #2563eb; } html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37,99,235,0.12); } html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37,99,235,0.08); } html:not(.dark) .bg-blue-900\/20, html:not(.dark) .bg-blue-900\/30, html:not(.dark) .bg-blue-900\/40 { background-color: rgba(37,99,235,0.08); } html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); } html:not(.dark) .text-red-400 { color: #b91c1c; } html:not(.dark) .bg-red-900\/20 { background-color: rgba(185,28,28,0.06); } html:not(.dark) .border-red-500\/30 { border-color: rgba(185,28,28,0.25); } html:not(.dark) .text-emerald-400 { color: #059669; } html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.08); } html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); } html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; } html:not(.dark) .text-primary { color: #a16207; } html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); } html:not(.dark) .border-primary\/30, html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); } html:not(.dark) .text-sky-400 { color: #0369a1; } html:not(.dark) .text-yellow-400 { color: #a16207; } html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; } html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; } html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }</style></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
+  <div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">✨</span><span class="font-bold text-lg hidden sm:inline">Claude Design Course</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div>
+  <div class="flex items-center space-x-1 sm:space-x-2">
+    <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+    <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Intermediário</span></a>
+    <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avançado</span></a>
+    <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Galeria</span></a>
+    <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Prompts</span></a>
+    <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button>
+  </div>
+</div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span><a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span><span class="text-blue-400">Módulo 2.3</span></div></nav>
+
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.3</span>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">💬 Deixando a IA perguntar (questions_v2)</h1>
+    <p class="text-lg text-neutral-400 max-w-3xl">Por que responder as 10+ perguntas melhora radicalmente o output. Quando pular legitimamente. Como controlar o número de perguntas via user prompt.</p>
+    <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Inter.</div><div class="text-xs text-neutral-400">Nível</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Tool</div><div class="text-xs text-neutral-400">Tipo</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-10">
+  <h3 class="text-lg font-semibold text-neutral-200 mb-4 flex items-center"><span class="mr-2">❓</span> As 10 perguntas canônicas (taxonomia do system prompt)</h3>
+  <svg viewBox="0 0 760 360" class="w-full" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="20" width="230" height="100" rx="10" fill="#1e40af" stroke="#60a5fa"/><text x="40" y="45" font-family="Inter" font-size="11" font-weight="700" fill="#bfdbfe">1. Ponto de partida</text><text x="40" y="65" font-family="Inter" font-size="10" fill="#dbeafe">Design system, UI kit, codebase?</text><text x="40" y="85" font-family="Inter" font-size="10" fill="#9ca3af">Se "não tenho": Claude PEDE.</text>
+    <rect x="265" y="20" width="230" height="100" rx="10" fill="#1e40af" stroke="#60a5fa"/><text x="285" y="45" font-family="Inter" font-size="11" font-weight="700" fill="#bfdbfe">2. Quantas variações gerais</text><text x="285" y="65" font-family="Inter" font-size="10" fill="#dbeafe">3? 5? 7? + em quais axis?</text><text x="285" y="85" font-family="Inter" font-size="10" fill="#9ca3af">Default: 3. Peça mais se quiser.</text>
+    <rect x="510" y="20" width="230" height="100" rx="10" fill="#1e40af" stroke="#60a5fa"/><text x="530" y="45" font-family="Inter" font-size="11" font-weight="700" fill="#bfdbfe">3. Foco: UX, visual, ideias?</text><text x="530" y="65" font-family="Inter" font-size="10" fill="#dbeafe">Componentes existentes ou novidade?</text><text x="530" y="85" font-family="Inter" font-size="10" fill="#9ca3af">Mix? Convencional + experimental?</text>
+
+    <rect x="20" y="130" width="230" height="100" rx="10" fill="#1e40af" stroke="#60a5fa"/><text x="40" y="155" font-family="Inter" font-size="11" font-weight="700" fill="#bfdbfe">4. Fluxo vs texto vs visual</text><text x="40" y="175" font-family="Inter" font-size="10" fill="#dbeafe">Qual é o foco? (peso relativo)</text><text x="40" y="195" font-family="Inter" font-size="10" fill="#9ca3af">Muda onde Claude investe tempo.</text>
+    <rect x="265" y="130" width="230" height="100" rx="10" fill="#1e40af" stroke="#60a5fa"/><text x="285" y="155" font-family="Inter" font-size="11" font-weight="700" fill="#bfdbfe">5. Tweaks desejados</text><text x="285" y="175" font-family="Inter" font-size="10" fill="#dbeafe">Cor, fonte, layout, tema?</text><text x="285" y="195" font-family="Inter" font-size="10" fill="#9ca3af">Quanto mais específico, melhor.</text>
+    <rect x="510" y="130" width="230" height="100" rx="10" fill="#1e40af" stroke="#60a5fa"/><text x="530" y="155" font-family="Inter" font-size="11" font-weight="700" fill="#bfdbfe">6. Variações específicas</text><text x="530" y="175" font-family="Inter" font-size="10" fill="#dbeafe">Quantas do hero? Do CTA? Do fluxo?</text><text x="530" y="195" font-family="Inter" font-size="10" fill="#9ca3af">Granular &gt; genérico.</text>
+
+    <rect x="20" y="240" width="230" height="100" rx="10" fill="#1e40af" stroke="#60a5fa"/><text x="40" y="265" font-family="Inter" font-size="11" font-weight="700" fill="#bfdbfe">7. Audiência + contexto</text><text x="40" y="285" font-family="Inter" font-size="10" fill="#dbeafe">Quem usa? Em qual contexto?</text><text x="40" y="305" font-family="Inter" font-size="10" fill="#9ca3af">Comportamental &gt; demográfico.</text>
+    <rect x="265" y="240" width="230" height="100" rx="10" fill="#1e40af" stroke="#60a5fa"/><text x="285" y="265" font-family="Inter" font-size="11" font-weight="700" fill="#bfdbfe">8. Restrições</text><text x="285" y="285" font-family="Inter" font-size="10" fill="#dbeafe">Viewport? Mobile-first? Dark?</text><text x="285" y="305" font-family="Inter" font-size="10" fill="#9ca3af">Requisitos não-negociáveis.</text>
+    <rect x="510" y="240" width="230" height="100" rx="10" fill="#1e40af" stroke="#60a5fa"/><text x="530" y="265" font-family="Inter" font-size="11" font-weight="700" fill="#bfdbfe">9. Handoff final</text><text x="530" y="285" font-family="Inter" font-size="10" fill="#dbeafe">Canva? Claude Code? PDF?</text><text x="530" y="305" font-family="Inter" font-size="10" fill="#9ca3af">Destino muda como export é preparado.</text>
+
+    <rect x="155" y="310" width="450" height="40" rx="10" fill="#facc15"/><text x="380" y="335" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#111827">10. + 4 perguntas específicas do problema</text>
+  </svg>
+</div>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🔬 Anatomia do questions_v2</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">questions_v2 é uma <strong>tool</strong> que Claude chama. Ela NÃO retorna resposta imediata — encerra o turno para você responder. Por isso você vê Claude parar "aguardando".</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6"><h3 class="text-lg font-semibold text-blue-400 mb-3">Quando Claude invoca</h3><ul class="space-y-2 text-neutral-300 text-sm"><li>• Projeto novo / ambíguo (ex: "faz um deck")</li><li>• Falta ponto de partida (sem DESIGN.md, sem repo)</li><li>• Pergunta genérica ("quero um site moderno")</li></ul></div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6"><h3 class="text-lg font-semibold text-neutral-200 mb-3">Quando Claude PULA</h3><ul class="space-y-2 text-neutral-300 text-sm"><li>• Ajustes pequenos num design existente</li><li>• Follow-up claro ("troque a fonte pra Geist")</li><li>• Contexto já foi dado no prompt inicial</li><li>• "recrie esta UI do codebase" — fonte pronta</li></ul></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📋 As 10 perguntas canônicas</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O system prompt dita: "Faça pelo menos <strong>mais 4 perguntas específicas do problema</strong>" — ou seja, 10 é mínimo, não máximo. Acima você viu o mapa.</p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6"><h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Hack: pré-responda</h3><p class="text-neutral-300 text-sm">Se você sabe essas 10 respostas de antemão, coloque tudo no prompt inicial → Claude pula completamente. É o que a skill <strong>design-designer</strong> (T5) faz.</p></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🎯 Quando pular legitimamente</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Pular não é sempre ruim. A decisão correta depende do contexto.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+  <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6"><h4 class="font-bold text-emerald-400 mb-3">✓ Pular faz sentido</h4><ul class="space-y-2 text-neutral-300 text-sm"><li>• Follow-ups em design existente</li><li>• Micro-ajustes visuais</li><li>• "recrie a UI desse repo" (fonte pronta)</li><li>• Prompt já front-loaded com tudo</li></ul></div>
+  <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6"><h4 class="font-bold text-red-400 mb-3">✗ Pular = resultado pior</h4><ul class="space-y-2 text-neutral-300 text-sm"><li>• Projeto do zero</li><li>• Sem DESIGN.md</li><li>• Pedido genérico ("algo bonito")</li><li>• Nenhuma referência visual</li></ul></div>
+</div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">⚡ Override: user prompt &gt; system prompt</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">System prompt pede "pelo menos 10 perguntas". User prompt ganha prioridade. Você pode pedir menos, nenhuma, ou N específicas.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6"><h4 class="font-semibold text-blue-400 mb-3">Frases que funcionam</h4>
+<pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>// Pedir poucas perguntas
+"Me faça só as 3 perguntas mais essenciais."
+
+// Pular completamente (pouco recomendado)
+"Skip questions. Generate using defaults."
+
+// Focar perguntas específicas
+"Pergunte apenas sobre handoff final e Tweaks.
+ O resto use meu DESIGN.md."
+
+// Responder antecipadamente
+"Audiência: solo founders técnicos. Feeling: late-night
+ cinematic. 5 variações (2 cor + 2 type + 1 layout radical).
+ Handoff: Claude Code. Sem orbes flutuantes."</code></pre></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">✍️ Como responder: curto e específico</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">2-5 palavras por resposta. Se não sabe, <em>"escolha você"</em> é válido — Claude toma decisão informada baseada no que já viu. Respostas longas consomem tokens sem melhorar qualidade.</p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6"><h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Padrão ideal de resposta</h3>
+<table class="w-full text-sm"><thead><tr class="border-b border-blue-500/30"><th class="text-left pb-2 text-blue-300">Pergunta</th><th class="text-left pb-2 text-blue-300">Resposta boa</th><th class="text-left pb-2 text-red-300">Resposta ruim</th></tr></thead>
+<tbody class="text-neutral-300"><tr class="border-b border-dark-700"><td class="py-2">Quantas variações?</td><td class="py-2 text-emerald-400">5</td><td class="py-2 text-red-400">"pelo menos 4 ou 5, depende"</td></tr>
+<tr class="border-b border-dark-700"><td class="py-2">Feeling?</td><td class="py-2 text-emerald-400">Late-night cinematic</td><td class="py-2 text-red-400">"algo escuro, moderno, elegante..."</td></tr>
+<tr class="border-b border-dark-700"><td class="py-2">Audiência?</td><td class="py-2 text-emerald-400">Solo founders técnicos</td><td class="py-2 text-red-400">"pessoas jovens interessadas em IA"</td></tr>
+<tr><td class="py-2">Handoff?</td><td class="py-2 text-emerald-400">Claude Code</td><td class="py-2 text-red-400">"depende do resultado"</td></tr></tbody></table></div>
+</section>
+
+<section class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔄 Pre-answer: a skill design-designer</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A skill oficial <strong class="text-blue-400">design-designer</strong> faz entrevista OFFLINE (antes de você abrir o Claude Design) e entrega prompt pronto para colar — cobrindo todas as 10 perguntas.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<svg viewBox="0 0 760 180" class="w-full" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="30" width="180" height="80" rx="8" fill="#0f172a" stroke="#10b981"/><text x="110" y="60" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#6ee7b7">design-designer skill</text><text x="110" y="80" text-anchor="middle" font-family="Inter" font-size="10" fill="#9ca3af">entrevista você</text><text x="110" y="96" text-anchor="middle" font-family="Inter" font-size="10" fill="#9ca3af">(offline, local)</text>
+<line x1="200" y1="70" x2="270" y2="70" stroke="#10b981" stroke-width="2" marker-end="url(#a)"/>
+<rect x="280" y="30" width="180" height="80" rx="8" fill="#1e40af" stroke="#60a5fa"/><text x="370" y="60" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#bfdbfe">prompt pronto</text><text x="370" y="80" text-anchor="middle" font-family="Inter" font-size="10" fill="#9ca3af">front-loaded</text><text x="370" y="96" text-anchor="middle" font-family="Inter" font-size="10" fill="#9ca3af">com 10 respostas</text>
+<line x1="460" y1="70" x2="530" y2="70" stroke="#60a5fa" stroke-width="2" marker-end="url(#a)"/>
+<rect x="540" y="30" width="180" height="80" rx="8" fill="#facc15"/><text x="630" y="60" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#111827">claude.ai/design</text><text x="630" y="80" text-anchor="middle" font-family="Inter" font-size="10" fill="#111827">cola, zero perguntas,</text><text x="630" y="96" text-anchor="middle" font-family="Inter" font-size="10" fill="#111827">gera direto</text>
+<text x="380" y="150" text-anchor="middle" font-family="Inter" font-size="11" fill="#9ca3af">Economiza os 90s de perguntas + dá output mais preciso (tudo definido antes)</text>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/></marker></defs>
+</svg>
+</div>
+</section>
+
+<section class="mb-12"><div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+  <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
+  <div class="space-y-4 mb-8">
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">questions_v2 é tool</strong><span class="text-neutral-400"> — encerra turno, espera resposta. Não é conversa.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">10 perguntas canônicas</strong><span class="text-neutral-400"> — ponto de partida, variações, foco, Tweaks, audiência, restrições, handoff + 4 do problema.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Pular é ok em follow-up</strong><span class="text-neutral-400"> — mas ruim em projeto do zero.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">User &gt; system prompt</strong><span class="text-neutral-400"> — você pode pedir menos perguntas explicitamente.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Respostas curtas</strong><span class="text-neutral-400"> — 2-5 palavras. "escolha você" é válido.</span></div></div>
+    <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">design-designer pre-answer</strong><span class="text-neutral-400"> — skill que entrevista offline e entrega prompt pronto.</span></div></div>
+  </div>
+  <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">2.4 — ✏️ Iteração no canvas</p></div>
+  <div class="flex flex-col sm:flex-row gap-4"><a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 2.2</a><a href="modulo-2-4.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Módulo 2.4 →</a></div>
+</div></section>
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Claude Design Course · INEMA.CLUB · 2026</p></div></footer>
+<script>const themeToggle=document.getElementById('theme-toggle'),d=document.getElementById('theme-toggle-dark-icon'),l=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){d.classList.remove('hidden');h.classList.remove('dark');}else{l.classList.remove('hidden');}themeToggle.addEventListener('click',()=>{d.classList.toggle('hidden');l.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light');});</script>
+</body></html>

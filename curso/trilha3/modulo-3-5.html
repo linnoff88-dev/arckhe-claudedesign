@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.5 · Animações em profundidade | T3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; } .dark body { background-color: #111827; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; } html:not(.dark) .bg-dark-800 { background-color: #f9fafb; } html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; } html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; } html:not(.dark) .text-neutral-300 { color: #4b5563; } html:not(.dark) .text-neutral-400 { color: #6b7280; } html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; } html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; } html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); } html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); } html:not(.dark) .bg-purple-900\/20, html:not(.dark) .bg-purple-900\/40 { background-color: rgba(124,58,237,0.08); } html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .text-red-400 { color: #b91c1c; } html:not(.dark) .bg-red-900\/20 { background-color: rgba(185,28,28,0.06); } html:not(.dark) .border-red-500\/30 { border-color: rgba(185,28,28,0.25); }
+    html:not(.dark) .text-emerald-400 { color: #059669; } html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.08); } html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; } html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); } html:not(.dark) .border-primary\/30, html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; } html:not(.dark) .text-yellow-400 { color: #a16207; } html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; } html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+    blockquote { border-left: 3px solid #c084fc; padding-left: 1rem; font-style: italic; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
+  <div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">✨</span><span class="font-bold text-lg hidden sm:inline">Claude Design Course</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div>
+  <div class="flex items-center space-x-1 sm:space-x-2">
+    <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+    <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Intermediário</span></a>
+    <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avançado</span></a>
+    <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Galeria</span></a>
+    <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Prompts</span></a>
+    <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button>
+  </div>
+</div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Módulo 3.5</span></div></nav>
+
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.5 · MOTION ENGINE</span>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎬 animations.jsx em profundidade</h1>
+    <p class="text-lg text-neutral-400 max-w-3xl">Stage props completos, Sprite lifecycle, todas as curvas Easing, composição de cenas complexas (paralelas + stagger), performance e quando cair em Popmotion.</p>
+    <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Expert</div><div class="text-xs text-neutral-400">Nível</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Motion</div><div class="text-xs text-neutral-400">Tipo</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<!-- TÓPICO 1: Stage props completos -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🎭 Stage — props e features built-in</h2></div>
+
+  <p class="text-neutral-300 mb-6 leading-relaxed"><code class="text-purple-400">&lt;Stage&gt;</code> é o container raiz de toda animação. Inclui autoescala (1920×1080 padrão), scrubber timeline, controles play/pause, e props que você pode customizar.</p>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Props completas</h3>
+    <table class="w-full text-sm">
+      <thead><tr class="border-b border-purple-500/30"><th class="text-left pb-2 text-purple-300">Prop</th><th class="text-left pb-2 text-purple-300">Tipo</th><th class="text-left pb-2 text-purple-300">Default</th><th class="text-left pb-2 text-purple-300">Para quê</th></tr></thead>
+      <tbody class="text-neutral-300">
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">duration</code></td><td class="py-2">number (ms)</td><td class="py-2"><span class="text-red-400">obrigatório</span></td><td class="py-2">Duração total da timeline</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">autoPlay</code></td><td class="py-2">boolean</td><td class="py-2">true</td><td class="py-2">Inicia tocando ao montar</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">loop</code></td><td class="py-2">boolean</td><td class="py-2">false</td><td class="py-2">Recomeça quando termina</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">scrubber</code></td><td class="py-2">boolean</td><td class="py-2">true</td><td class="py-2">Mostra timeline com scrub manual</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">controls</code></td><td class="py-2">boolean</td><td class="py-2">true</td><td class="py-2">Mostra play/pause/restart</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">autoScale</code></td><td class="py-2">boolean</td><td class="py-2">true</td><td class="py-2">Escala 1920×1080 para qualquer viewport</td></tr>
+        <tr><td class="py-2"><code class="text-purple-400 text-xs">canvasSize</code></td><td class="py-2">{w, h}</td><td class="py-2">{1920, 1080}</td><td class="py-2">Override resolução interna</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-emerald-400 mb-3">Use case: video export-ready</h3>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>// Para gerar vídeo exportável (sem UI overlays)
+&lt;Stage
+  duration={5000}
+  autoPlay={false}
+  scrubber={false}
+  controls={false}
+  loop={false}
+&gt;
+  {/* Sprites aqui — nenhum controle visível */}
+  {/* Use frame-by-frame screenshot externo para gerar MP4 */}
+&lt;/Stage&gt;</code></pre>
+  </div>
+</section>
+
+<!-- TÓPICO 2: Sprite lifecycle -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">✨ Sprite — lifecycle, props, sub-sprites</h2></div>
+
+  <p class="text-neutral-300 mb-6 leading-relaxed">Cada <code class="text-purple-400">&lt;Sprite&gt;</code> tem janela de existência (start..end ms). Antes do start: não montado. Após end: desmontado. <strong>Hidden</strong> não é "display: none" — é unmount real (children não rodam).</p>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Composição de cenas — 3 padrões</h3>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>// PADRÃO 1: Sequencial (um após outro)
+&lt;Sprite start={0} end={1000}&gt;Hero&lt;/Sprite&gt;
+&lt;Sprite start={1000} end={2000}&gt;Cards&lt;/Sprite&gt;
+&lt;Sprite start={2000} end={3000}&gt;CTA&lt;/Sprite&gt;
+
+// PADRÃO 2: Paralelo (sobreposição total)
+&lt;Sprite start={0} end={2000}&gt;Background pulse&lt;/Sprite&gt;
+&lt;Sprite start={0} end={2000}&gt;Foreground content&lt;/Sprite&gt;
+// Os dois rodam simultaneamente
+
+// PADRÃO 3: Stagger (entrada escalonada)
+{[0, 200, 400, 600].map(delay =&gt; (
+  &lt;Sprite key={delay} start={delay} end={delay + 800}&gt;
+    &lt;Card index={delay/200} /&gt;
+  &lt;/Sprite&gt;
+))}
+// 4 cards entram com 200ms de gap entre eles</code></pre>
+  </div>
+
+  <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Sub-sprites (Sprites aninhados)</h3>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>// Sprite "pai" cria janela de tempo
+&lt;Sprite start={1000} end={4000}&gt;
+  &lt;HeroSection&gt;
+    {/* Sprite "filho" começa relativo ao pai */}
+    &lt;Sprite start={500} end={1500}&gt;
+      &lt;Headline /&gt;  {/* aparece em t=1500ms (pai 1000 + filho 500) */}
+    &lt;/Sprite&gt;
+    &lt;Sprite start={800} end={2000}&gt;
+      &lt;Subhead /&gt;
+    &lt;/Sprite&gt;
+  &lt;/HeroSection&gt;
+&lt;/Sprite&gt;</code></pre>
+    <p class="text-neutral-400 text-xs mt-3">Sprites aninhados herdam contexto do pai mas têm timeline própria. Útil para cenas complexas com múltiplos elementos.</p>
+  </div>
+</section>
+
+<!-- TÓPICO 3: useTime vs useSprite -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">⏱️ useTime vs useSprite — qual escolher</h2></div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+      <h4 class="font-bold text-purple-400 mb-3">useTime() — tempo absoluto</h4>
+      <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto"><code>const t = useTime();
+// t = ms desde o início do Stage
+// 0..duration
+
+// Use para:
+// - Animações que dependem de tempo absoluto
+// - Sincronia com música/áudio
+// - Loops contínuos
+// - Pulsing/breathing (Math.sin(t/500))</code></pre>
+    </div>
+    <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+      <h4 class="font-bold text-purple-400 mb-3">useSprite() — progresso 0-1</h4>
+      <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto"><code>const p = useSprite();
+// p = progresso do Sprite atual
+// 0 no start, 1 no end
+
+// Use para:
+// - Animações de entrada/saída
+// - Reutilizar componente em Sprites de durações diferentes
+// - Casos onde o tempo absoluto não importa</code></pre>
+    </div>
+  </div>
+
+  <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-emerald-400 mb-3">Exemplo combinado: hero com pulse contínuo</h3>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>function Hero() {
+  const t = useTime();          // tempo absoluto (para pulse)
+  const p = useSprite();        // progresso da entrada
+
+  const pulse = 1 + Math.sin(t / 400) * 0.05;  // breathing
+  const entry = Easing.easeOut(p);             // entrada suave
+
+  return (
+    &lt;h1 style={{
+      transform: `scale(${entry * pulse})`,
+      opacity: entry
+    }}&gt;
+      Welcome
+    &lt;/h1&gt;
+  );
+}
+
+&lt;Sprite start={0} end={1500}&gt;
+  &lt;Hero /&gt;
+&lt;/Sprite&gt;</code></pre>
+  </div>
+</section>
+
+<!-- TÓPICO 4: Easing curves -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📈 Easing — todas as curvas + quando usar cada</h2></div>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Catálogo de easings</h3>
+    <table class="w-full text-sm">
+      <thead><tr class="border-b border-purple-500/30"><th class="text-left pb-2 text-purple-300">Easing</th><th class="text-left pb-2 text-purple-300">Comportamento</th><th class="text-left pb-2 text-purple-300">Use case</th></tr></thead>
+      <tbody class="text-neutral-300">
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">linear</code></td><td class="py-2">Velocidade constante</td><td class="py-2">Loops, scrolls automáticos</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">easeIn</code></td><td class="py-2">Lento → rápido</td><td class="py-2">Saídas (algo "se afasta")</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">easeOut</code></td><td class="py-2">Rápido → lento</td><td class="py-2"><strong>Entradas</strong> (default 80% dos casos)</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">easeInOut</code></td><td class="py-2">Lento → rápido → lento</td><td class="py-2">Transições entre estados</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">easeBack</code></td><td class="py-2">Volta levemente antes de chegar</td><td class="py-2">Drama, emphasis (CTA)</td></tr>
+        <tr><td class="py-2"><code class="text-purple-400 text-xs">easeBounce</code></td><td class="py-2">Quica ao chegar</td><td class="py-2">Playful, casual (não premium)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">interpolate — mapeamento avançado</h3>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>// Forma básica: 0-1 → range customizado
+const y = interpolate(p, [0, 1], [40, 0]);
+// p=0 → y=40, p=0.5 → y=20, p=1 → y=0
+
+// Multi-stop: anima entre 3 pontos
+const opacity = interpolate(
+  p,
+  [0, 0.5, 1],     // entrada (0..0.5) e saída (0.5..1)
+  [0, 1, 0]
+);
+// p=0 → 0, p=0.25 → 0.5, p=0.5 → 1, p=0.75 → 0.5, p=1 → 0
+
+// Combinado com easing
+const x = interpolate(
+  Easing.easeOut(p),
+  [0, 1],
+  [-100, 0]
+);</code></pre>
+  </div>
+</section>
+
+<!-- TÓPICO 5: Performance + entry/exit primitives -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">⚡ Entry/exit primitives + performance</h2></div>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Helpers prontos (cobrem 80% dos casos)</h3>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>import { fadeIn, fadeOut, slideInUp, slideOutDown,
+         scaleIn, scaleOut, slideInLeft, slideInRight } from 'animations';
+
+// Uso direto:
+&lt;Sprite start={0} end={800}&gt;
+  &lt;div style={fadeIn()}&gt;
+    Conteúdo aparece em fade
+  &lt;/div&gt;
+&lt;/Sprite&gt;
+
+// Combinado:
+&lt;Sprite start={0} end={800}&gt;
+  &lt;div style={{ ...fadeIn(), ...slideInUp({ distance: 40 }) }}&gt;
+    Fade + slide combinados
+  &lt;/div&gt;
+&lt;/Sprite&gt;</code></pre>
+  </div>
+
+  <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-emerald-400 mb-3">Performance: o que acelera GPU</h3>
+    <ul class="space-y-2 text-neutral-300 text-sm">
+      <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">✓</span><span><strong>transform</strong> (translateX, translateY, scale, rotate) — GPU accelerated</span></li>
+      <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">✓</span><span><strong>opacity</strong> — GPU accelerated</span></li>
+      <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">✓</span><span><strong>filter</strong> (blur, brightness) — GPU accelerated mas mais caro</span></li>
+      <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">✗</span><span><strong>width, height, top, left, padding</strong> — causa reflow, lento</span></li>
+      <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">✗</span><span><strong>background-color animado</strong> — repaint constante, evite</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- TÓPICO 6: Popmotion fallback + quota -->
+<section class="mb-16">
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🎁 Popmotion fallback + consumo de quota</h2></div>
+
+  <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Citação literal — quando cair em Popmotion</h3>
+    <blockquote class="text-neutral-300 text-sm mb-2"><em>"Só use Popmotion (https://unpkg.com/popmotion@11.0.5/dist/popmotion.min.js) se o componente inicial realmente não cobrir o caso de uso."</em></blockquote>
+  </div>
+
+  <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Casos que justificam Popmotion</h3>
+    <ul class="space-y-2 text-neutral-300 text-sm">
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Spring physics</strong> realista (animations.jsx tem easing, mas não simulação de mola completa)</span></li>
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Drag/gesture handling</strong> com inércia</span></li>
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Path animation</strong> ao longo de SVG path</span></li>
+      <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Color interpolation</strong> avançada (HSL, OKLCH path)</span></li>
+    </ul>
+    <p class="text-neutral-400 text-xs mt-3">CDN exata: <code class="text-purple-400 text-xs">https://unpkg.com/popmotion@11.0.5/dist/popmotion.min.js</code> (versão pinned).</p>
+  </div>
+
+  <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Animações consomem quota agressivamente</h3>
+    <p class="text-neutral-300 text-sm mb-3">Geração de uma animação complexa pode consumir <strong>5-10x mais tokens</strong> que uma landing equivalente. Razões:</p>
+    <ul class="space-y-1 text-neutral-300 text-sm">
+      <li>• Múltiplos Sprites = mais código por geração</li>
+      <li>• Iteração de timing precisa de feedback visual constante</li>
+      <li>• Verificador roda screenshots em múltiplos frames</li>
+    </ul>
+    <p class="text-neutral-400 text-xs mt-3">No plano Pro: 2-3 sessões de animação intensa podem esgotar cota semanal. Para uso rotineiro, Max ($100-200/mês) é necessário.</p>
+  </div>
+
+  <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+    <h3 class="text-lg font-semibold text-emerald-400 mb-3">Hack: itere com prompt simples + Tweaks</h3>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>"Create initial animation: hero fade-in 0-800ms,
+3 cards stagger 600-1800ms, CTA pulse 2000-3000ms.
+Total Stage duration 3500ms.
+
+Expose Tweaks for:
+- duration multiplier (0.5x, 1x, 1.5x, 2x)
+- stagger gap (100ms, 200ms, 300ms)
+- CTA easing (easeOut, easeBack, easeBounce)
+
+I want to iterate on timing without re-prompting."</code></pre>
+    <p class="text-neutral-400 text-xs mt-3">Tweaks &gt; re-prompt para ajustar timing — economiza tokens dramaticamente em animações.</p>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="mb-12">
+  <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+    <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
+    <div class="space-y-4 mb-8">
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Stage props</strong><span class="text-neutral-400"> — duration (obrigatório), autoPlay, loop, scrubber, controls, autoScale, canvasSize.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Sprite lifecycle</strong><span class="text-neutral-400"> — start..end ms, real unmount fora da janela. Sub-sprites herdam pai mas têm timeline própria.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">3 padrões composição</strong><span class="text-neutral-400"> — sequencial, paralelo, stagger.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">useTime vs useSprite</strong><span class="text-neutral-400"> — absoluto (loops) vs relativo (entrada/saída).</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">6 easings</strong><span class="text-neutral-400"> — linear, easeIn/Out/InOut, easeBack, easeBounce. interpolate multi-stop.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Performance: GPU vs reflow</strong><span class="text-neutral-400"> — transform/opacity/filter sim; width/height/padding/bg-color não.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Popmotion 11.0.5 só fallback</strong><span class="text-neutral-400"> — spring physics, gesture, path animation, color HSL avançado.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Quota: 5-10x mais que landing</strong><span class="text-neutral-400"> — use Tweaks para iterar timing sem re-prompt.</span></div></div>
+    </div>
+    <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">3.6 — 🎯 Edge cases + GitHub flow + URLs internas + .napkin</p></div>
+    <div class="flex flex-col sm:flex-row gap-4"><a href="modulo-3-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 3.4</a><a href="modulo-3-6.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Módulo 3.6 →</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Claude Design Course · INEMA.CLUB · 2026</p></div></footer>
+<script>const themeToggle=document.getElementById('theme-toggle'),d=document.getElementById('theme-toggle-dark-icon'),l=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){d.classList.remove('hidden');h.classList.remove('dark');}else{l.classList.remove('hidden');}themeToggle.addEventListener('click',()=>{d.classList.toggle('hidden');l.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light');});</script>
+</body></html>
