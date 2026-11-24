@@ -1,4 +1,4 @@
-﻿# Claude Design â€” Curso do Zero ao Expert
+# Claude Design â€” Curso do Zero ao Expert
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -6,7 +6,7 @@
 </div>
 
 
-Curso completo sobre o **Claude Design** (Anthropic Labs, `claude.ai/design` â€” lanÃ§ado em 17/04/2026 sobre Claude Opus 4.7), no padrÃ£o visual **INEMA.CLUB**.
+Curso completo sobre o **Claude Design** (Anthropic Labs, `claude.ai/design` â€” lanÃ§ado em 17/04/2026 sobre Claude Opus 4.7), no padrÃ£o visual **ARCKHÉ AI**.
 
 > Ferramenta colaborativa de criaÃ§Ã£o visual: vocÃª **conversa** em vez de desenhar. Designs, protÃ³tipos, slides e peÃ§as de marketing gerados via chat, com identidade de marca aplicada automaticamente.
 
@@ -45,7 +45,7 @@ Cada trilha tem:
 
 ## PadrÃ£o visual
 
-Todas as pÃ¡ginas seguem o template **INEMA.CLUB**: navegaÃ§Ã£o global com logo amarelo + link sky-400, cards de mÃ³dulos com tÃ³picos expansÃ­veis de 3 seÃ§Ãµes (o-que-Ã© / por-quÃª / conceitos-chave), light/dark mode, sem gradientes no light mode, botÃµes sempre `justify-start`.
+Todas as pÃ¡ginas seguem o template **ARCKHÉ AI**: navegaÃ§Ã£o global com logo amarelo + link sky-400, cards de mÃ³dulos com tÃ³picos expansÃ­veis de 3 seÃ§Ãµes (o-que-Ã© / por-quÃª / conceitos-chave), light/dark mode, sem gradientes no light mode, botÃµes sempre `justify-start`.
 
 ## ContribuiÃ§Ã£o
 
@@ -53,7 +53,7 @@ Material-fonte (vazamentos, notas, drafts) fica em `/doc` â€” que estÃ¡ e
 
 ## LicenÃ§a
 
-ConteÃºdo didÃ¡tico INEMA.CLUB. Uso educacional.
+ConteÃºdo didÃ¡tico ARCKHÉ AI. Uso educacional.
 
 ---
 
