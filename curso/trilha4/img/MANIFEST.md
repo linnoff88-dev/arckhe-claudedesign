@@ -13,7 +13,7 @@
 | 05 | `05-planning-scaffold.png` | Planejamento ("Let me set up the scaffolding"), Progress 0/3 com checklist + deck-stage.js sendo criado no painel direito | idem |
 | 06 | `06-deck-slide-1-pivotal.png` | Slide 1 "Pivotal Analytics" gerado | idem |
 | 07 | `07-deck-slide-3-pivotal.png` | Slide 3 "A query-level observability layer..." com seções Capture/Rank/Explain | idem |
-| 08 | `08-tweaks-panel-deck.png` | Deck com painel Tweaks aberto no canto direito + botão Export | idem |
+| 08 | `08-tweaks-panel-deck.png` | Deck com painel Tweaks aberto no canto direito + botêo Export | idem |
 | 09 | `09-export-menu.png` | Menu Export com opções: Download zip, PDF, PPTX, Send to Canva, Standalone HTML, Handoff to Claude Code | idem |
 | 10 | `10-share-modal.png` | Modal Share com permissões e access control | idem |
 | 11 | `11-handoff-claude-code.png` | Modal "Send to local coding agent" com comando para colar no terminal Claude Code | idem |
@@ -24,8 +24,8 @@
 | # | Arquivo | Mostra | Fonte |
 |---|---------|--------|-------|
 | 13 | `13-globe-tweaks-hero.jpg` | Mockup de globo interativo com painel Tweaks (Theme dark/light, Breakpoint, Network: Arc color/width/glow/density, Pulse speed) | anthropic.com/news/claude-design-anthropic-labs (hero oficial) |
-| 14 | `14-meditation-app-tweaks.png` | App de meditação no ios_frame com Tweaks customizado (Device preview, Theme 6 swatches Stone/Moss/Mist/Clay/Dusk/Sakura/Ink, Typography sliders, Sections toggles, Layout density Comfy/Compact) | adweek.com/media/anthropic-debuts-claude-design-for-building-marketing-assets-decks-and-uis |
-| 15 | `15-mockups-collage-anthropic.png` | Composição de 6 mockups feitos com Claude Design (retreat detail, settings com sliders, portfolio) sobre fundo coral Anthropic | adweek.com idem |
+| 14 | `14-meditation-app-tweaks.png` | App de meditaçêo no ios_frame com Tweaks customizado (Device preview, Theme 6 swatches Stone/Moss/Mist/Clay/Dusk/Sakura/Ink, Typography sliders, Sections toggles, Layout density Comfy/Compact) | adweek.com/media/anthropic-debuts-claude-design-for-building-marketing-assets-decks-and-uis |
+| 15 | `15-mockups-collage-anthropic.png` | Composiçêo de 6 mockups feitos com Claude Design (retreat detail, settings com sliders, portfolio) sobre fundo coral Anthropic | adweek.com idem |
 | 16 | `16-full-ui-hemlark-retreat.png` | UI COMPLETA: chat panel à esquerda + canvas central com mockup "Hemlark Retreat '26" + variações ao lado direito | siliconangle.com/2026/04/17/anthropic-launches-claude-design-speed-graphic-design-projects |
 | 17 | `17-tweaks-knobs-meditation.jpeg` | Toolbar com Tweaks/Comment/Edit text/Knobs/Draw + iOS frame com player de áudio + painel Tweaks (Theme swatches + Typography) | agence-scroll.com/en/blog/claude-design-anthropic-2026-guide |
 
@@ -44,4 +44,4 @@
 
 ## Uso
 
-Todas as imagens são embarcadas via `<img src="img/NN-name.png" loading="lazy" alt="...">` nas páginas T4. Referência da fonte aparece no `<figcaption>` (transparência editorial).
+Todas as imagens sêo embarcadas via `<img src="img/NN-name.png" loading="lazy" alt="...">` nas páginas T4. Referência da fonte aparece no `<figcaption>` (transparência editorial).

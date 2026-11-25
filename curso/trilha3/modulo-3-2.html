@@ -2,7 +2,7 @@
 <html lang="pt-BR" class="dark">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MÃ³dulo 3.2 Â· Starter components (API real) | T3</title>
+  <title>MêÂ³dulo 3.2 êÂ· Starter components (API real) | T3</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }</script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -26,28 +26,28 @@
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
 <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
-  <div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">âœ¨</span><span class="font-bold text-lg hidden sm:inline">Claude Design Course</span></a><span class="text-neutral-600">|</span><a href="https://ARCKHÉ AI" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">ARCKHÉ AI</a></div>
+  <div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">ê¢ÅÂ¨</span><span class="font-bold text-lg hidden sm:inline">Claude Design Course</span></a><span class="text-neutral-600">|</span><a href="https://ARCKHê AI" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">ARCKHê AI</a></div>
   <div class="flex items-center space-x-1 sm:space-x-2">
     <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
-    <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">IntermediÃ¡rio</span></a>
-    <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">AvanÃ§ado</span></a>
+    <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">IntermediêÂ¡rio</span></a>
+    <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">AvanêÂ§ado</span></a>
     <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Galeria</span></a>
     <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Prompts</span></a>
     <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button>
   </div>
 </div></div></nav>
 
-<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">InÃ­cio</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">MÃ³dulo 3.2</span></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">InêÂ­cio</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">MêÂ³dulo 3.2</span></div></nav>
 
 <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÃ“DULO 3.2 Â· STARTERS</span>
-    <h1 class="text-3xl sm:text-4xl font-bold mb-4">ðŸ§© Starter components: API, internals, contratos</h1>
-    <p class="text-lg text-neutral-400 max-w-3xl">Tudo sobre <code class="text-purple-400">copy_starter_component</code>: parÃ¢metros exatos, internals do <code class="text-purple-400">deck_stage.js</code>, frames, animations engine, e o speaker notes script tag oficial.</p>
+    <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MêâDULO 3.2 êÂ· STARTERS</span>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">ê°Å¸Â§Â© Starter components: API, internals, contratos</h1>
+    <p class="text-lg text-neutral-400 max-w-3xl">Tudo sobre <code class="text-purple-400">copy_starter_component</code>: parêÂ¢metros exatos, internals do <code class="text-purple-400">deck_stage.js</code>, frames, animations engine, e o speaker notes script tag oficial.</p>
     <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
       <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">7</div><div class="text-xs text-neutral-400">Starters</div></div>
       <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div>
-      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Expert</div><div class="text-xs text-neutral-400">NÃ­vel</div></div>
+      <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Expert</div><div class="text-xs text-neutral-400">NêÂ­vel</div></div>
       <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">API</div><div class="text-xs text-neutral-400">Tipo</div></div>
     </div>
   </div>
@@ -55,37 +55,37 @@
 
 <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-<!-- TÃ“PICO 1: copy_starter_component API -->
+<!-- TêâPICO 1: copy_starter_component API -->
 <section class="mb-16">
-  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">ðŸ› ï¸ A tool copy_starter_component</h2></div>
-  <p class="text-neutral-300 mb-6 leading-relaxed">Ã‰ a ferramenta que importa scaffolds prontos. <strong>Substitui</strong> "desenhar manualmente molduras de dispositivo, cascas de deck, grades de apresentaÃ§Ã£o".</p>
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">ê°Å¸âºÂ ê¯Â¸Â A tool copy_starter_component</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">êâ° a ferramenta que importa scaffolds prontos. <strong>Substitui</strong> "desenhar manualmente molduras de dispositivo, cascas de deck, grades de apresentaêÂ§êÂ£o".</p>
   <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-    <h3 class="text-lg font-semibold text-purple-400 mb-3">CitaÃ§Ã£o literal</h3>
-    <blockquote class="text-neutral-300 text-sm mb-2"><em>"Use copy_starter_component para inserir estruturas prontas no projeto em vez de desenhar manualmente molduras de dispositivos, cascas de deck ou grades de apresentaÃ§Ã£o. A ferramenta devolve o conteÃºdo completo para que vocÃª possa encaixar imediatamente seu design nele. Os tipos incluem a extensÃ£o do arquivo â€” alguns sÃ£o JS puro (carregue com &lt;script src&gt;), outros sÃ£o JSX (carregue com &lt;script type='text/babel' src&gt;). Passe a extensÃ£o exatamente; <strong>a ferramenta falha se vocÃª usar o nome sem extensÃ£o ou com extensÃ£o errada.</strong>"</em></blockquote>
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">CitaêÂ§êÂ£o literal</h3>
+    <blockquote class="text-neutral-300 text-sm mb-2"><em>"Use copy_starter_component para inserir estruturas prontas no projeto em vez de desenhar manualmente molduras de dispositivos, cascas de deck ou grades de apresentaêÂ§êÂ£o. A ferramenta devolve o conteêÂºdo completo para que vocêÂª possa encaixar imediatamente seu design nele. Os tipos incluem a extensêÂ£o do arquivo ê¢â¬â alguns sêÂ£o JS puro (carregue com &lt;script src&gt;), outros sêÂ£o JSX (carregue com &lt;script type='text/babel' src&gt;). Passe a extensêÂ£o exatamente; <strong>a ferramenta falha se vocêÂª usar o nome sem extensêÂ£o ou com extensêÂ£o errada.</strong>"</em></blockquote>
   </div>
   <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-    <h3 class="text-lg font-semibold text-red-400 mb-3">âš ï¸ ExtensÃ£o exata Ã© obrigatÃ³ria</h3>
-    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>// âœ“ FUNCIONA
+    <h3 class="text-lg font-semibold text-red-400 mb-3">ê¢Å¡Â ê¯Â¸Â ExtensêÂ£o exata êÂ© obrigatêÂ³ria</h3>
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>// ê¢Åâ FUNCIONA
 copy_starter_component({ kind: "deck_stage.js" })
 copy_starter_component({ kind: "ios_frame.jsx" })
 copy_starter_component({ kind: "animations.jsx" })
 
-// âœ— FALHA SILENCIOSAMENTE
-copy_starter_component({ kind: "deck_stage" })       // sem extensÃ£o
-copy_starter_component({ kind: "ios_frame.js" })     // extensÃ£o errada
-copy_starter_component({ kind: "deck-stage.js" })    // hÃ­fen em vez de underscore</code></pre>
+// ê¢Åâ FALHA SILENCIOSAMENTE
+copy_starter_component({ kind: "deck_stage" })       // sem extensêÂ£o
+copy_starter_component({ kind: "ios_frame.js" })     // extensêÂ£o errada
+copy_starter_component({ kind: "deck-stage.js" })    // hêÂ­fen em vez de underscore</code></pre>
   </div>
 </section>
 
-<!-- TÃ“PICO 2: Tabela completa dos 7 -->
+<!-- TêâPICO 2: Tabela completa dos 7 -->
 <section class="mb-16">
-  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">ðŸ“‹ Tabela completa dos 7 starters</h2></div>
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">ê°Å¸ââ¹ Tabela completa dos 7 starters</h2></div>
   <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-auto">
     <table class="w-full text-sm">
-      <thead><tr class="border-b border-purple-500/30"><th class="text-left pb-2 text-purple-300">kind</th><th class="text-left pb-2 text-purple-300">Tipo</th><th class="text-left pb-2 text-purple-300">Como carregar</th><th class="text-left pb-2 text-purple-300">Use case obrigatÃ³rio</th></tr></thead>
+      <thead><tr class="border-b border-purple-500/30"><th class="text-left pb-2 text-purple-300">kind</th><th class="text-left pb-2 text-purple-300">Tipo</th><th class="text-left pb-2 text-purple-300">Como carregar</th><th class="text-left pb-2 text-purple-300">Use case obrigatêÂ³rio</th></tr></thead>
       <tbody class="text-neutral-300">
-        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">deck_stage.js</code></td><td class="py-2">JS puro</td><td class="py-2"><code class="text-xs">&lt;script src&gt;</code></td><td class="py-2"><strong>QUALQUER deck</strong> â€” sem alternativa</td></tr>
-        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">design_canvas.jsx</code></td><td class="py-2">JSX React</td><td class="py-2"><code class="text-xs">&lt;script type="text/babel" src&gt;</code></td><td class="py-2">2+ opÃ§Ãµes estÃ¡ticas lado a lado</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">deck_stage.js</code></td><td class="py-2">JS puro</td><td class="py-2"><code class="text-xs">&lt;script src&gt;</code></td><td class="py-2"><strong>QUALQUER deck</strong> ê¢â¬â sem alternativa</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">design_canvas.jsx</code></td><td class="py-2">JSX React</td><td class="py-2"><code class="text-xs">&lt;script type="text/babel" src&gt;</code></td><td class="py-2">2+ opêÂ§êÂµes estêÂ¡ticas lado a lado</td></tr>
         <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">ios_frame.jsx</code></td><td class="py-2">JSX React</td><td class="py-2"><code class="text-xs">&lt;script type="text/babel" src&gt;</code></td><td class="py-2">Mockup iOS (notch + status + teclado)</td></tr>
         <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">android_frame.jsx</code></td><td class="py-2">JSX React</td><td class="py-2"><code class="text-xs">&lt;script type="text/babel" src&gt;</code></td><td class="py-2">Mockup Android (status + nav)</td></tr>
         <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">macos_window.jsx</code></td><td class="py-2">JSX React</td><td class="py-2"><code class="text-xs">&lt;script type="text/babel" src&gt;</code></td><td class="py-2">Janela macOS (traffic lights)</td></tr>
@@ -96,30 +96,30 @@ copy_starter_component({ kind: "deck-stage.js" })    // hÃ­fen em vez de under
   </div>
 </section>
 
-<!-- TÃ“PICO 3: deck_stage.js internals -->
+<!-- TêâPICO 3: deck_stage.js internals -->
 <section class="mb-16">
-  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">ðŸ“Š deck_stage.js â€” internals e contratos</h2></div>
-  <p class="text-neutral-300 mb-6 leading-relaxed">Ã‰ o starter mais importante (obrigatÃ³rio por system prompt para QUALQUER deck). Ele faz <strong>10 coisas automaticamente</strong> que vocÃª nÃ£o precisa implementar.</p>
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">ê°Å¸âÅ  deck_stage.js ê¢â¬â internals e contratos</h2></div>
+  <p class="text-neutral-300 mb-6 leading-relaxed">êâ° o starter mais importante (obrigatêÂ³rio por system prompt para QUALQUER deck). Ele faz <strong>10 coisas automaticamente</strong> que vocêÂª nêÂ£o precisa implementar.</p>
 
   <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-    <h3 class="text-lg font-semibold text-purple-400 mb-3">10 features built-in (citaÃ§Ã£o literal)</h3>
-    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Para decks de slides, nÃ£o implemente isso manualmente â€” chame copy_starter_component com kind: 'deck_stage.js' e coloque cada slide como filho direto &lt;section&gt; do elemento &lt;deck-stage&gt;. O componente cuida da escala, navegaÃ§Ã£o por teclado/toque, overlay de contagem de slides, persistÃªncia em localStorage, impressÃ£o para PDF (uma pÃ¡gina por slide) e dos contratos externos dos quais o host depende: ele rotula automaticamente cada slide com data-screen-label e data-om-validate, e envia {slideIndexChanged: N} ao pai para manter as notas do apresentador sincronizadas."</em></blockquote>
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">10 features built-in (citaêÂ§êÂ£o literal)</h3>
+    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Para decks de slides, nêÂ£o implemente isso manualmente ê¢â¬â chame copy_starter_component com kind: 'deck_stage.js' e coloque cada slide como filho direto &lt;section&gt; do elemento &lt;deck-stage&gt;. O componente cuida da escala, navegaêÂ§êÂ£o por teclado/toque, overlay de contagem de slides, persistêÂªncia em localStorage, impressêÂ£o para PDF (uma pêÂ¡gina por slide) e dos contratos externos dos quais o host depende: ele rotula automaticamente cada slide com data-screen-label e data-om-validate, e envia {slideIndexChanged: N} ao pai para manter as notas do apresentador sincronizadas."</em></blockquote>
     <ol class="space-y-1 text-neutral-300 text-sm list-decimal list-inside mt-3">
-      <li><strong>Auto-scale</strong> 1920Ã—1080 via <code class="text-purple-400 text-xs">transform: scale()</code></li>
+      <li><strong>Auto-scale</strong> 1920êâ1080 via <code class="text-purple-400 text-xs">transform: scale()</code></li>
       <li><strong>Letterbox preto</strong> nas bordas para qualquer aspect ratio do viewport</li>
-      <li><strong>NavegaÃ§Ã£o teclado</strong> â€” setas, espaÃ§o, page up/down</li>
-      <li><strong>NavegaÃ§Ã£o touch</strong> â€” swipe esquerda/direita</li>
+      <li><strong>NavegaêÂ§êÂ£o teclado</strong> ê¢â¬â setas, espaêÂ§o, page up/down</li>
+      <li><strong>NavegaêÂ§êÂ£o touch</strong> ê¢â¬â swipe esquerda/direita</li>
       <li><strong>Overlay de contagem</strong> "03/12" no canto inferior</li>
-      <li><strong>PersistÃªncia localStorage</strong> â€” reload volta ao slide atual</li>
-      <li><strong>Print to PDF</strong> â€” uma pÃ¡gina por slide (preserva quebras)</li>
-      <li><strong>Auto-rotula data-screen-label</strong> â€” "01", "02", "03"... automaticamente</li>
-      <li><strong>Auto-rotula data-om-validate</strong> â€” para o verificador silencioso checar</li>
-      <li><strong>postMessage({slideIndexChanged: N})</strong> â€” para sync com speaker notes externas</li>
+      <li><strong>PersistêÂªncia localStorage</strong> ê¢â¬â reload volta ao slide atual</li>
+      <li><strong>Print to PDF</strong> ê¢â¬â uma pêÂ¡gina por slide (preserva quebras)</li>
+      <li><strong>Auto-rotula data-screen-label</strong> ê¢â¬â "01", "02", "03"... automaticamente</li>
+      <li><strong>Auto-rotula data-om-validate</strong> ê¢â¬â para o verificador silencioso checar</li>
+      <li><strong>postMessage({slideIndexChanged: N})</strong> ê¢â¬â para sync com speaker notes externas</li>
     </ol>
   </div>
 
   <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
-    <h3 class="text-lg font-semibold text-purple-400 mb-3">Estrutura HTML mÃ­nima</h3>
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">Estrutura HTML mêÂ­nima</h3>
     <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -133,11 +133,11 @@ copy_starter_component({ kind: "deck-stage.js" })    // hÃ­fen em vez de under
   &lt;/deck-stage&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-    <p class="text-neutral-400 text-xs mt-3">Cada <code class="text-purple-400">&lt;section&gt;</code> Ã© um slide. O resto Ã© automÃ¡tico.</p>
+    <p class="text-neutral-400 text-xs mt-3">Cada <code class="text-purple-400">&lt;section&gt;</code> êÂ© um slide. O resto êÂ© automêÂ¡tico.</p>
   </div>
 
   <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
-    <h3 class="text-lg font-semibold text-emerald-400 mb-3">ðŸ“¢ Speaker notes â€” script tag oficial</h3>
+    <h3 class="text-lg font-semibold text-emerald-400 mb-3">ê°Å¸âÂ¢ Speaker notes ê¢â¬â script tag oficial</h3>
     <p class="text-neutral-300 text-sm mb-3">O system prompt define o formato EXATO:</p>
     <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>&lt;head&gt;
   &lt;script type="application/json" id="speaker-notes"&gt;
@@ -150,32 +150,32 @@ copy_starter_component({ kind: "deck-stage.js" })    // hÃ­fen em vez de under
 &lt;/head&gt;</code></pre>
     <p class="text-neutral-400 text-xs mt-3">Combinado com <code class="text-emerald-400 text-xs">deck_stage.js</code> (que envia <code class="text-emerald-400 text-xs">postMessage({slideIndexChanged: N})</code> automaticamente), o sistema renderiza notas externamente em sync.</p>
     <div class="bg-red-900/20 border border-red-500/30 rounded p-3 mt-3">
-      <p class="text-red-400 text-xs font-semibold">âš ï¸ Regra: <em>"NUNCA adicione notas do apresentador a menos que isso seja explicitamente pedido."</em></p>
+      <p class="text-red-400 text-xs font-semibold">ê¢Å¡Â ê¯Â¸Â Regra: <em>"NUNCA adicione notas do apresentador a menos que isso seja explicitamente pedido."</em></p>
     </div>
   </div>
 
   <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-    <h3 class="text-lg font-semibold text-purple-400 mb-3">data-screen-label â€” convenÃ§Ã£o 1-indexed</h3>
-    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Slide numbers are 1-indexed. Use labels like '01 Title', '02 Agenda' â€” matching the slide counter ({idx + 1}/{total}) the user sees. Quando um usuÃ¡rio diz 'slide 5' ou 'index 5', ele quer dizer o 5Âº slide (label '05'), nunca a posiÃ§Ã£o do array [4] â€” humanos nÃ£o falam em Ã­ndice comeÃ§ando do zero. <strong>Se vocÃª numerar a partir de 0, toda referÃªncia de slide ficarÃ¡ deslocada em um.</strong>"</em></blockquote>
-    <p class="text-neutral-400 text-xs mt-2">Se vocÃª criar manualmente, use "01", "02"... Se usar deck_stage.js, Ã© automÃ¡tico.</p>
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">data-screen-label ê¢â¬â convenêÂ§êÂ£o 1-indexed</h3>
+    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Slide numbers are 1-indexed. Use labels like '01 Title', '02 Agenda' ê¢â¬â matching the slide counter ({idx + 1}/{total}) the user sees. Quando um usuêÂ¡rio diz 'slide 5' ou 'index 5', ele quer dizer o 5êÂº slide (label '05'), nunca a posiêÂ§êÂ£o do array [4] ê¢â¬â humanos nêÂ£o falam em êÂ­ndice comeêÂ§ando do zero. <strong>Se vocêÂª numerar a partir de 0, toda referêÂªncia de slide ficarêÂ¡ deslocada em um.</strong>"</em></blockquote>
+    <p class="text-neutral-400 text-xs mt-2">Se vocêÂª criar manualmente, use "01", "02"... Se usar deck_stage.js, êÂ© automêÂ¡tico.</p>
   </div>
 </section>
 
-<!-- TÃ“PICO 4: animations.jsx detail -->
+<!-- TêâPICO 4: animations.jsx detail -->
 <section class="mb-16">
-  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">ðŸŽ¬ animations.jsx â€” Stage, Sprite, hooks completos</h2></div>
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">ê°Å¸Å½Â¬ animations.jsx ê¢â¬â Stage, Sprite, hooks completos</h2></div>
 
   <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
     <h3 class="text-lg font-semibold text-purple-400 mb-3">API completa (do system prompt)</h3>
-    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Comece chamando copy_starter_component com kind: 'animations.jsx' â€” ele fornece &lt;Stage&gt; (autoescala + scrubber + play/pause), &lt;Sprite start end&gt;, hooks useTime() / useSprite(), Easing, interpolate() e primitivas de entrada/saÃ­da. Construa cenas compondo Sprites dentro de um Stage. SÃ³ use Popmotion (https://unpkg.com/popmotion@11.0.5/dist/popmotion.min.js) se o componente inicial realmente nÃ£o cobrir o caso de uso. Para protÃ³tipos interativos, transiÃ§Ãµes CSS ou estado React simples bastam. Resista Ã  vontade de adicionar TÃTULOS Ã  pÃ¡gina HTML em si."</em></blockquote>
+    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Comece chamando copy_starter_component com kind: 'animations.jsx' ê¢â¬â ele fornece &lt;Stage&gt; (autoescala + scrubber + play/pause), &lt;Sprite start end&gt;, hooks useTime() / useSprite(), Easing, interpolate() e primitivas de entrada/saêÂ­da. Construa cenas compondo Sprites dentro de um Stage. SêÂ³ use Popmotion (https://unpkg.com/popmotion@11.0.5/dist/popmotion.min.js) se o componente inicial realmente nêÂ£o cobrir o caso de uso. Para protêÂ³tipos interativos, transiêÂ§êÂµes CSS ou estado React simples bastam. Resista êÂ  vontade de adicionar TêÂTULOS êÂ  pêÂ¡gina HTML em si."</em></blockquote>
   </div>
 
   <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
     <h3 class="text-lg font-semibold text-purple-400 mb-3">Cheat sheet API</h3>
     <table class="w-full text-sm">
-      <thead><tr class="border-b border-purple-500/30"><th class="text-left pb-2 text-purple-300">SÃ­mbolo</th><th class="text-left pb-2 text-purple-300">Tipo</th><th class="text-left pb-2 text-purple-300">Para quÃª</th></tr></thead>
+      <thead><tr class="border-b border-purple-500/30"><th class="text-left pb-2 text-purple-300">SêÂ­mbolo</th><th class="text-left pb-2 text-purple-300">Tipo</th><th class="text-left pb-2 text-purple-300">Para quêÂª</th></tr></thead>
       <tbody class="text-neutral-300">
-        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">&lt;Stage duration={ms}&gt;</code></td><td class="py-2">Component</td><td class="py-2">Container â€” autoescala + scrubber + play/pause</td></tr>
+        <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">&lt;Stage duration={ms}&gt;</code></td><td class="py-2">Component</td><td class="py-2">Container ê¢â¬â autoescala + scrubber + play/pause</td></tr>
         <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">&lt;Sprite start end&gt;</code></td><td class="py-2">Component</td><td class="py-2">Existe entre start/end ms (props ms). Hidden fora dessa janela</td></tr>
         <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">useTime()</code></td><td class="py-2">Hook</td><td class="py-2">Retorna tempo absoluto do Stage (ms)</td></tr>
         <tr class="border-b border-dark-700"><td class="py-2"><code class="text-purple-400 text-xs">useSprite()</code></td><td class="py-2">Hook</td><td class="py-2">Retorna progresso 0-1 do Sprite atual</td></tr>
@@ -223,31 +223,31 @@ copy_starter_component({ kind: "deck-stage.js" })    // hÃ­fen em vez de under
   </div>
 
   <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-    <h3 class="text-lg font-semibold text-red-400 mb-3">âš ï¸ Regra: "Resist titles"</h3>
+    <h3 class="text-lg font-semibold text-red-400 mb-3">ê¢Å¡Â ê¯Â¸Â Regra: "Resist titles"</h3>
     <blockquote class="text-neutral-300 text-sm"><em>"Resist the urge to add TITLES to the actual html page."</em></blockquote>
-    <p class="text-neutral-400 text-xs mt-2">Animation HTML nÃ£o deve ter cabeÃ§alhos. Cena comeÃ§a direto. Se quer "tÃ­tulo", inclua como Sprite na prÃ³pria timeline.</p>
+    <p class="text-neutral-400 text-xs mt-2">Animation HTML nêÂ£o deve ter cabeêÂ§alhos. Cena comeêÂ§a direto. Se quer "têÂ­tulo", inclua como Sprite na prêÂ³pria timeline.</p>
   </div>
 </section>
 
-<!-- TÃ“PICO 5: design_canvas e frames -->
+<!-- TêâPICO 5: design_canvas e frames -->
 <section class="mb-16">
-  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">ðŸ“±ðŸ–¥ï¸ design_canvas + frames</h2></div>
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">ê°Å¸âÂ±ê°Å¸âÂ¥ê¯Â¸Â design_canvas + frames</h2></div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
     <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
       <h3 class="text-lg font-semibold text-purple-400 mb-3">design_canvas.jsx</h3>
-      <p class="text-neutral-300 text-sm mb-3">CitaÃ§Ã£o:</p>
-      <blockquote class="text-neutral-400 text-xs"><em>"Use ao apresentar 2 ou mais opÃ§Ãµes estÃ¡ticas lado a lado. Um layout em grade com cÃ©lulas rotuladas para variaÃ§Ãµes."</em></blockquote>
+      <p class="text-neutral-300 text-sm mb-3">CitaêÂ§êÂ£o:</p>
+      <blockquote class="text-neutral-400 text-xs"><em>"Use ao apresentar 2 ou mais opêÂ§êÂµes estêÂ¡ticas lado a lado. Um layout em grade com cêÂ©lulas rotuladas para variaêÂ§êÂµes."</em></blockquote>
       <h4 class="font-semibold text-purple-400 mt-4 mb-2">Quando usar</h4>
       <ul class="space-y-1 text-neutral-300 text-sm">
-        <li>â€¢ 3-6 variaÃ§Ãµes de hero, lado a lado</li>
-        <li>â€¢ ComparaÃ§Ã£o de 2 estÃ©ticas (Linear vs A24)</li>
-        <li>â€¢ Apresentar opÃ§Ãµes de cor/tipo</li>
+        <li>ê¢â¬Â¢ 3-6 variaêÂ§êÂµes de hero, lado a lado</li>
+        <li>ê¢â¬Â¢ ComparaêÂ§êÂ£o de 2 estêÂ©ticas (Linear vs A24)</li>
+        <li>ê¢â¬Â¢ Apresentar opêÂ§êÂµes de cor/tipo</li>
       </ul>
-      <h4 class="font-semibold text-purple-400 mt-4 mb-2">Quando NÃƒO usar</h4>
+      <h4 class="font-semibold text-purple-400 mt-4 mb-2">Quando NêÆO usar</h4>
       <ul class="space-y-1 text-neutral-300 text-sm">
-        <li>â€¢ VariaÃ§Ãµes de fluxo/interaÃ§Ã£o â†’ use Tweak</li>
-        <li>â€¢ 1 design sÃ³ (waste)</li>
+        <li>ê¢â¬Â¢ VariaêÂ§êÂµes de fluxo/interaêÂ§êÂ£o ê¢â â use Tweak</li>
+        <li>ê¢â¬Â¢ 1 design sêÂ³ (waste)</li>
       </ul>
     </div>
 
@@ -261,32 +261,32 @@ copy_starter_component({ kind: "deck-stage.js" })    // hÃ­fen em vez de under
           <tr><td class="py-1.5"><code class="text-purple-400">browser_window.jsx</code></td><td class="py-1.5">address bar + nav buttons + tabs</td></tr>
         </tbody>
       </table>
-      <p class="text-neutral-400 text-xs mt-3">CombinaÃ§Ã£o poderosa: <code class="text-purple-400">design_canvas</code> com 3 cÃ©lulas, cada uma usando <code class="text-purple-400">ios_frame</code> = 3 flows mobile lado a lado para comparaÃ§Ã£o.</p>
+      <p class="text-neutral-400 text-xs mt-3">CombinaêÂ§êÂ£o poderosa: <code class="text-purple-400">design_canvas</code> com 3 cêÂ©lulas, cada uma usando <code class="text-purple-400">ios_frame</code> = 3 flows mobile lado a lado para comparaêÂ§êÂ£o.</p>
     </div>
   </div>
 </section>
 
-<!-- TÃ“PICO 6: EsboÃ§os .napkin + conteÃºdo fixo -->
+<!-- TêâPICO 6: EsboêÂ§os .napkin + conteêÂºdo fixo -->
 <section class="mb-16">
-  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">ðŸ“ .napkin sketches + conteÃºdo de tamanho fixo</h2></div>
+  <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">ê°Å¸âÂ .napkin sketches + conteêÂºdo de tamanho fixo</h2></div>
 
   <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-    <h3 class="text-lg font-semibold text-purple-400 mb-3">EsboÃ§os .napkin (citaÃ§Ã£o literal)</h3>
-    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Quando um arquivo .napkin for anexado, leia sua miniatura em scraps/.{filename}.thumbnail.png â€” o JSON Ã© sÃ³ dado bruto de desenho, nÃ£o Ã© Ãºtil diretamente."</em></blockquote>
-    <p class="text-neutral-400 text-xs">Se vocÃª usa Napkin (ferramenta de sketch), o anexo fica visÃ­vel para Claude via thumbnail PNG, nÃ£o o JSON cru.</p>
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">EsboêÂ§os .napkin (citaêÂ§êÂ£o literal)</h3>
+    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Quando um arquivo .napkin for anexado, leia sua miniatura em scraps/.{filename}.thumbnail.png ê¢â¬â o JSON êÂ© sêÂ³ dado bruto de desenho, nêÂ£o êÂ© êÂºtil diretamente."</em></blockquote>
+    <p class="text-neutral-400 text-xs">Se vocêÂª usa Napkin (ferramenta de sketch), o anexo fica visêÂ­vel para Claude via thumbnail PNG, nêÂ£o o JSON cru.</p>
   </div>
 
   <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
-    <h3 class="text-lg font-semibold text-purple-400 mb-3">ConteÃºdo de tamanho fixo (regra geral)</h3>
-    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Decks de slides, apresentaÃ§Ãµes, vÃ­deos e outros conteÃºdos de tamanho fixo devem implementar sua prÃ³pria escala em JS para que o conteÃºdo caiba em qualquer viewport: uma tela fixa (padrÃ£o 1920Ã—1080, 16:9) envolta em um palco de viewport completo que a enquadra em preto via transform: scale(), com controles anterior/prÃ³ximo fora do elemento escalado para que continuem utilizÃ¡veis em telas pequenas."</em></blockquote>
-    <p class="text-neutral-400 text-xs">Para decks: <code class="text-purple-400">deck_stage.js</code> faz isso. Para vÃ­deos/animaÃ§Ãµes: <code class="text-purple-400">animations.jsx</code> faz com Stage. Manualmente, padrÃ£o Ã© 1920Ã—1080, 16:9, transform-scale + letterbox preto.</p>
+    <h3 class="text-lg font-semibold text-purple-400 mb-3">ConteêÂºdo de tamanho fixo (regra geral)</h3>
+    <blockquote class="text-neutral-300 text-sm mb-3"><em>"Decks de slides, apresentaêÂ§êÂµes, vêÂ­deos e outros conteêÂºdos de tamanho fixo devem implementar sua prêÂ³pria escala em JS para que o conteêÂºdo caiba em qualquer viewport: uma tela fixa (padrêÂ£o 1920êâ1080, 16:9) envolta em um palco de viewport completo que a enquadra em preto via transform: scale(), com controles anterior/prêÂ³ximo fora do elemento escalado para que continuem utilizêÂ¡veis em telas pequenas."</em></blockquote>
+    <p class="text-neutral-400 text-xs">Para decks: <code class="text-purple-400">deck_stage.js</code> faz isso. Para vêÂ­deos/animaêÂ§êÂµes: <code class="text-purple-400">animations.jsx</code> faz com Stage. Manualmente, padrêÂ£o êÂ© 1920êâ1080, 16:9, transform-scale + letterbox preto.</p>
   </div>
 
   <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
     <h3 class="text-lg font-semibold text-emerald-400 mb-3">Override aspect ratio</h3>
     <p class="text-neutral-300 text-sm mb-3">Para 9:16 (Stories, Reels, vertical):</p>
-    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>"NÃ£o use deck_stage.js (ele Ã© hardcoded 1920Ã—1080).
-Implemente manualmente: stage 1080Ã—1920 (9:16),
+    <pre class="bg-dark-900 p-3 rounded text-xs text-neutral-300 overflow-auto border border-dark-600"><code>"NêÂ£o use deck_stage.js (ele êÂ© hardcoded 1920êâ1080).
+Implemente manualmente: stage 1080êâ1920 (9:16),
 escala via transform-scale para fit no viewport.
 Mantenha controles fora do elemento escalado."</code></pre>
   </div>
@@ -295,22 +295,22 @@ Mantenha controles fora do elemento escalado."</code></pre>
 <!-- RESUMO -->
 <section class="mb-12">
   <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
-    <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">âœ…</span> Resumo do MÃ³dulo</h2>
+    <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">ê¢Åâ¦</span> Resumo do MêÂ³dulo</h2>
     <div class="space-y-4 mb-8">
-      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">âœ“</span><div><strong class="text-white">copy_starter_component({kind: "..."})</strong><span class="text-neutral-400"> â€” extensÃ£o exata obrigatÃ³ria.</span></div></div>
-      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">âœ“</span><div><strong class="text-white">7 starters</strong><span class="text-neutral-400"> â€” 1 JS (deck_stage) + 6 JSX (design_canvas, 4 frames, animations).</span></div></div>
-      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">âœ“</span><div><strong class="text-white">deck_stage faz 10 coisas</strong><span class="text-neutral-400"> â€” escala, teclado, touch, contagem, localStorage, print PDF, data-screen-label/data-om-validate auto, postMessage slideIndexChanged.</span></div></div>
-      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">âœ“</span><div><strong class="text-white">Speaker notes</strong><span class="text-neutral-400"> â€” &lt;script type="application/json" id="speaker-notes"&gt;[...]&lt;/script&gt;. NUNCA adicione sem pedir.</span></div></div>
-      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">âœ“</span><div><strong class="text-white">animations.jsx API</strong><span class="text-neutral-400"> â€” Stage + Sprite + useTime/useSprite + Easing + interpolate. Popmotion 11.0.5 sÃ³ fallback.</span></div></div>
-      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">âœ“</span><div><strong class="text-white">ConteÃºdo fixo padrÃ£o 1920Ã—1080</strong><span class="text-neutral-400"> â€” para 9:16, manual sem deck_stage.</span></div></div>
-      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">âœ“</span><div><strong class="text-white">.napkin via thumbnail.png</strong><span class="text-neutral-400"> â€” nÃ£o JSON cru.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">ê¢Åâ</span><div><strong class="text-white">copy_starter_component({kind: "..."})</strong><span class="text-neutral-400"> ê¢â¬â extensêÂ£o exata obrigatêÂ³ria.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">ê¢Åâ</span><div><strong class="text-white">7 starters</strong><span class="text-neutral-400"> ê¢â¬â 1 JS (deck_stage) + 6 JSX (design_canvas, 4 frames, animations).</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">ê¢Åâ</span><div><strong class="text-white">deck_stage faz 10 coisas</strong><span class="text-neutral-400"> ê¢â¬â escala, teclado, touch, contagem, localStorage, print PDF, data-screen-label/data-om-validate auto, postMessage slideIndexChanged.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">ê¢Åâ</span><div><strong class="text-white">Speaker notes</strong><span class="text-neutral-400"> ê¢â¬â &lt;script type="application/json" id="speaker-notes"&gt;[...]&lt;/script&gt;. NUNCA adicione sem pedir.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">ê¢Åâ</span><div><strong class="text-white">animations.jsx API</strong><span class="text-neutral-400"> ê¢â¬â Stage + Sprite + useTime/useSprite + Easing + interpolate. Popmotion 11.0.5 sêÂ³ fallback.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">ê¢Åâ</span><div><strong class="text-white">ConteêÂºdo fixo padrêÂ£o 1920êâ1080</strong><span class="text-neutral-400"> ê¢â¬â para 9:16, manual sem deck_stage.</span></div></div>
+      <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">ê¢Åâ</span><div><strong class="text-white">.napkin via thumbnail.png</strong><span class="text-neutral-400"> ê¢â¬â nêÂ£o JSON cru.</span></div></div>
     </div>
-    <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">PrÃ³ximo MÃ³dulo:</h3><p class="text-neutral-300">3.3 â€” ðŸ”’ Verificador silencioso (fork_verifier_agent + done flow)</p></div>
-    <div class="flex flex-col sm:flex-row gap-4"><a href="modulo-3-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">â† MÃ³dulo 3.1</a><a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">MÃ³dulo 3.3 â†’</a></div>
+    <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">PrêÂ³ximo MêÂ³dulo:</h3><p class="text-neutral-300">3.3 ê¢â¬â ê°Å¸ââ Verificador silencioso (fork_verifier_agent + done flow)</p></div>
+    <div class="flex flex-col sm:flex-row gap-4"><a href="modulo-3-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">ê¢â Â MêÂ³dulo 3.1</a><a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">MêÂ³dulo 3.3 ê¢â â</a></div>
   </div>
 </section>
 </main>
 
-<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Claude Design Course Â· ARCKHÉ AI Â· 2026</p></div></footer>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Claude Design Course êÂ· ARCKHê AI êÂ· 2026</p></div></footer>
 <script>const themeToggle=document.getElementById('theme-toggle'),d=document.getElementById('theme-toggle-dark-icon'),l=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){d.classList.remove('hidden');h.classList.remove('dark');}else{l.classList.remove('hidden');}themeToggle.addEventListener('click',()=>{d.classList.toggle('hidden');l.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light');});</script>
 </body></html>
